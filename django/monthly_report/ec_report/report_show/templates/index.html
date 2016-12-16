@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<form method='post' style="margin:1.1cm 0cm -1.8cm 25cm">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="提交">
+</form>
+{% include "base.html" %}
+<body>
+    <table id="customers">
+        <caption>{{ summary.month }}月EC库中新增变更处理情况分析</caption>
+        <tr>
+            <th>EC单类别</th> <th>数量</th>
+        </tr>
+        <tr>
+            <td>提单总数</td> <td>{{ summary.total_number }}</td>
+        </tr>
+        <tr>
+            <td>需求单</td> <td>{{ summary.requirement_number }}</td>
+        </tr>
+        <tr>
+            <td>优化单</td> <td>{{ summary.optimization_number }}</td>
+        </tr>
+        <tr>
+            <td>已确认拒绝及已作废</td> <td>{{ summary.refused_or_canceled_number }}</td>
+        </tr>
+        <tr>
+            <td>重复单</td> <td>{{ summary.repetition_number }}</td>
+        </tr>
+        <tr>
+            <td>自提单</td> <td>{{ summary.self_commit_number }}</td>
+        </tr>
+        <tr>
+            <td>泄漏率(1-自提单/有效变更)</td> <td>{{ summary.leak_rate }}%</td>
+        </tr>
+        <tr>
+            <td>院内泄露</td> <td>{{ summary.internal_leak_number }}</td>
+        </tr>
+        <tr>
+            <td>本月实施</td> <td>{{ summary.carry_out_number }}</td>
+        </tr>
+        <tr>
+            <td>总有效变更</td> <td>{{ summary.total_valid_number }}</td>
+        </tr>
+    </table>
+</body>
+
+</html>

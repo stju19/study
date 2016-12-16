@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns="">
+<head>
+    <style>
+        caption {caption-side:top; font-size:23px;}
+        .catalog_customers
+        {
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            width:50%;
+            border-collapse:collapse;
+            margin-left:5%;
+            margin-right:5%;
+        }
+        .catalog_customers td, .catalog_customers th
+        {
+            font-size:1em;
+            text-align:center;
+            border:1px solid #98bf21;
+            padding:3px 7px 2px 7px;
+        }
+        .catalog_customers th
+        {
+            font-size:1.1em;
+            text-align:center;
+            padding-top:5px;
+            padding-bottom:4px;
+            background-color:#A7C942;
+            color:#ffffff;
+        }
+        .catalog_customers tr.alt td
+        {
+            color:#000000;
+            background-color:#EAF2D3;
+        }
+        .children_customers
+        {
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            width:90%;
+            border-collapse:collapse;
+            margin-left:5%;
+            margin-right:5%;
+        }
+        .children_customers td
+        {
+            font-size:1em;
+            text-align:center;
+            border:1px solid #98bf21;
+            padding:3px 7px 2px 7px;
+        }
+        .children_customers th
+        {
+            font-size:1.1em;
+            text-align:center;
+            padding-top:5px;
+            padding-bottom:4px;
+            background-color:#A7C942;
+            color:#ffffff;
+        }
+        .children_customers tr.alt td
+        {
+            color:#000000;
+            background-color:#EAF2D3;
+        }
+        .children_customers tr td+td+td
+        {
+            text-align:left;
+        }
+        p.big{line-height:100%; font-size:25px; text-align:center; margin-left:5%; margin-right:5%;}
+    </style>
+</head>
+<form method='post' style="margin:1.1cm 0cm -1.8cm 25cm">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="提交">
+</form>
+{% include "base.html" %}
+<body>
+    <table class="catalog_customers">
+        <caption><a name="C0">{{state_dict.month}}月EC库中新增变更处理情况状态分析</a></caption>
+        <tr>
+            <th>EC单状态</th> <th>数量</th> <th>百分比</th><th>统计图</th>
+        </tr>
+        <tr>
+            <td><a href="#C1">待确认拒绝</a></td>
+            <td>{{ state_dict.wait_confirm_refuse_nums }}</td>
+            <td>{{ state_dict.wait_confirm_refuse_percent }}%</td>
+            <td rowspan=10>
+                {% include "sector_graph.html" %}
+            </td>
+        </tr>
+        <tr>
+            <td><a href="#C2">待审核</a></td> <td>{{ state_dict.wait_review_nums }}</td>
+            <td>{{ state_dict.wait_review_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C3">实施中</a></td>
+            <td>{{ state_dict.implementing_nums }}</td>
+            <td>{{ state_dict.implementing_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C4">已确认拒绝</a></td>
+            <td>{{ state_dict.confirmed_refuse_nums }}</td>
+            <td>{{ state_dict.confirmed_refuse_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C5">待研究</a></td>
+            <td>{{ state_dict.wait_research_nums }}</td>
+            <td>{{ state_dict.wait_research_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C6">已关闭</a></td>
+            <td>{{ state_dict.closed_nums }}</td>
+            <td>{{ state_dict.closed_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C7">已上报</a></td>
+            <td>{{ state_dict.reported_nums }}</td>
+            <td>{{ state_dict.reported_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C8">待关联请求处理</a></td>
+            <td>{{ state_dict.wait_relate_handle_nums }}</td>
+            <td>{{ state_dict.wait_relate_handle_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C9">待确认重复</a></td>
+            <td>{{ state_dict.wait_confirm_repeat_nums }}</td>
+            <td>{{ state_dict.wait_confirm_repeat_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C10">已作废</a></td>
+            <td>{{ state_dict.invalid_nums }}</td>
+            <td>{{ state_dict.invalid_percent }}%</td>
+        </tr>
+    </table>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C1">待确认拒绝</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.wait_confirm_refuse %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C2">待审核</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.wait_review %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C3">实施中</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.implementing %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C4">已确认拒绝</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.confirmed_refuse %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C5">待研究</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.wait_research %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C6">已关闭</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.closed %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C7">已上报</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.reported %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C8">待关联请求处理</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.wait_relate_handle %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C9">待确认重复</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.wait_confirm_repeat %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C10">已作废</a></caption>
+        <tr>
+            <th>编号</th> <th>产品</th> <th>主题</th>
+        </tr>
+        {% for list in state_dict.invalid %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="big"><a href="#C0">返回</a></p>
+</body>
+</html>

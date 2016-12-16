@@ -1,0 +1,40 @@
+# bash completion for podm-docker
+
+_jgq_docker()
+{
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    pre="${COMP_WORDS[COMP_CWORD-1]}"
+
+    opts='create start stop restart enter rm load rmi'
+    case "$pre" in
+        jgq-docker)
+            COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+            return 0
+            ;;
+        rmi)
+            opts="-f --force"
+            COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+            return 0
+            ;;
+        *)
+            return 0
+    esac
+}
+complete -F _jgq_docker jgq-docker
+
+_podm_link()
+{
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    pre="${COMP_WORDS[COMP_CWORD-1]}"
+
+    opts='-h -m -d'
+    case "$pre" in
+        podm-link)
+            COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+            return 0
+            ;;
+        *)
+            return 0
+    esac
+}
+complete -F _podm_link podm-link

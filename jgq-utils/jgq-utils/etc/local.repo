@@ -1,0 +1,5 @@
+[podm_local]
+name=podm_local
+baseurl=http://10.43.211.43/podm_install/
+enabled=1
+gpgcheck=0

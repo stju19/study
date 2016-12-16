@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        caption {caption-side:top; font-size:23px;}
+        .catalog_customers
+        {
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            width:70%;
+            border-collapse:collapse;
+            margin-left:5%;
+            margin-right:5%;
+        }
+        .catalog_customers td, .catalog_customers th
+        {
+            font-size:1em;
+            text-align:center;
+            border:1px solid #98bf21;
+            padding:3px 7px 2px 7px;
+        }
+        .catalog_customers th
+        {
+            font-size:1.1em;
+            text-align:center;
+            padding-top:5px;
+            padding-bottom:4px;
+            background-color:#A7C942;
+            color:#ffffff;
+        }
+        .catalog_customers tr.alt td
+        {
+            color:#000000;
+            background-color:#EAF2D3;
+        }
+        .children_customers
+        {
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            width:90%;
+            border-collapse:collapse;
+            margin-left:5%;
+            margin-right:5%;
+        }
+        .children_customers td
+        {
+            font-size:1em;
+            text-align:center;
+            border:1px solid #98bf21;
+            padding:3px 7px 2px 7px;
+        }
+        .children_customers th
+        {
+            font-size:1.1em;
+            text-align:center;
+            padding-top:5px;
+            padding-bottom:4px;
+            background-color:#A7C942;
+            color:#ffffff;
+        }
+        .children_customers tr.alt td
+        {
+            color:#000000;
+            background-color:#EAF2D3;
+        }
+        .children_customers tr td+td+td
+        {
+            text-align:left;
+        }
+        p.big{line-height:100%; font-size:25px; text-align:center; margin-left:5%; margin-right:5%;}
+    </style>
+</head>
+<form method='post' style="margin:1.1cm 0cm -1.8cm 25cm">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="提交">
+</form>
+{% include "base.html" %}
+<body>
+    <table class="catalog_customers">
+        <caption><a name="C0">{{style_dict.month}}月EC库中新增变更处理情况状态分析</a></caption>
+        <tr>
+            <th>所属大类</th> <th>所属小类</th> <th>数量</th> <th>百分比</th> <th>统计图</th>
+        </tr>
+        <tr>
+            <td rowspan=4>缺陷/故障</td>
+            <td><a href="#C1">A-致命</a></td>
+            <td>{{ style_dict.a_deadly_count }}</td>
+            <td>{{ style_dict.a_deadly_percent }}%</td>
+            <td rowspan=11>
+                {% include "sector_graph.html" %}
+            </td>
+        </tr>
+        <tr>
+            <td><a href="#C2">B-严重</a></td>
+            <td>{{ style_dict.b_serious_count }}</td>
+            <td>{{ style_dict.b_serious_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C3">C-一般</a></td>
+            <td>{{ style_dict.c_general_count }}</td>
+            <td>{{ style_dict.c_general_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C4">D-轻微</a></td>
+            <td>{{ style_dict.d_slight_count }}</td>
+            <td>{{ style_dict.d_slight_percent }}%</td>
+        </tr>
+        <tr>
+            <td rowspan=3>需求</td>
+            <td><a href="#C5">新增</a></td>
+            <td>{{ style_dict.add_count }}</td>
+            <td>{{ style_dict.add_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C6">修改</a></td>
+            <td>{{ style_dict.change_count }}</td>
+            <td>{{ style_dict.change_percent }}%</td>
+        </tr>
+        <tr>
+            <td><a href="#C7">删除</a></td>
+            <td>{{ style_dict.delete_count }}</td>
+            <td>{{ style_dict.delete_percent }}%</td>
+        </tr>
+        <tr>
+            <td>优化</td>
+            <td><a href="#C8">优化</a></td>
+            <td>{{ style_dict.optimize_count }}</td>
+            <td>{{ style_dict.optimize_percent }}%</td>
+        </tr>
+    </table>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C1">A-致命</a></caption>
+        <tr>
+            <th>编号</th> <th>状态</th> <th>产品</th> <th>主题</th>
+        </tr>
+            {% for list in  style_dict.a_deadly %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.state }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <p><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C2">B-严重</a></caption>
+        <tr>
+            <th>编号</th> <th>状态</th> <th>产品</th> <th>主题</th>
+        </tr>
+            {% for list in  style_dict.b_serious %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.state }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <p><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C3">C-一般</a></caption>
+        <tr>
+            <th>编号</th> <th>状态</th> <th>产品</th> <th>主题</th>
+        </tr>
+            {% for list in  style_dict.c_general %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.state }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <p><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C4">D-轻微</a></caption>
+        <tr>
+            <th>编号</th> <th>状态</th> <th>产品</th> <th>主题</th>
+        </tr>
+            {% for list in  style_dict.d_slight %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.state }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <p><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C5">新增</a></caption>
+        <tr>
+            <th>编号</th> <th>状态</th> <th>产品</th> <th>主题</th>
+        </tr>
+            {% for list in  style_dict.add %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.state }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <p><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C6">修改</a></caption>
+        <tr>
+            <th>编号</th> <th>状态</th> <th>产品</th> <th>主题</th>
+        </tr>
+            {% for list in  style_dict.change %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.state }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <p><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C7">删除</a></caption>
+        <tr>
+            <th>编号</th> <th>状态</th> <th>产品</th> <th>主题</th>
+        </tr>
+            {% for list in  style_dict.delete %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.state }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <p><a href="#C0">返回</a></p>
+
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="C8">优化</a></caption>
+        <tr>
+            <th>编号</th> <th>状态</th> <th>产品</th> <th>主题</th>
+        </tr>
+            {% for list in  style_dict.optimize %}
+            <tr>
+                <td>{{ list.number }}</td> <td>{{ list.state }}</td> <td>{{ list.product }}</td> <td>{{ list.theme }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <p><a href="#C0">返回</a></p>
+</body>
+</html>

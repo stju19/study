@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>虚拟化南京一部月报系统</title>
+    <style>
+        caption {caption-side:top; font-size:23px;}
+        .catalog_customers
+        {
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            width:90%;
+            border-collapse:collapse;
+            margin-left:5%;
+            margin-right:5%;
+        }
+        .catalog_customers td, .catalog_customers th
+        {
+            font-size:1em;
+            text-align:center;
+            border:1px solid #98bf21;
+            padding:3px 7px 2px 7px;
+        }
+        .catalog_customers th
+        {
+            font-size:1.1em;
+            text-align:center;
+            padding-top:5px;
+            padding-bottom:4px;
+            background-color:#A7C942;
+            color:#ffffff;
+        }
+        .catalog_customers tr.alt td
+        {
+            color:#000000;
+            background-color:#EAF2D3;
+        }
+        .children_customers
+        {
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            width:90%;
+            border-collapse:collapse;
+            margin-left:5%;
+            margin-right:5%;
+        }
+        .children_customers td
+        {
+            font-size:1em;
+            text-align:center;
+            border:1px solid #98bf21;
+            padding:3px 7px 2px 7px;
+        }
+        .children_customers th
+        {
+            font-size:1.1em;
+            text-align:center;
+            padding-top:5px;
+            padding-bottom:4px;
+            background-color:#A7C942;
+            color:#ffffff;
+        }
+        .children_customers tr.alt td
+        {
+            color:#000000;
+            background-color:#EAF2D3;
+        }
+        .children_customers tr td+td+td
+        {
+            text-align:left;
+        }
+        p.big{line-height:100%; font-size:25px; text-align:center; margin-left:5%; margin-right:5%;}
+    </style>
+</head>
+<form method='post' style="margin:1.1cm 0cm -1.8cm 25cm">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="提交">
+</form>
+{% include "base.html" %}
+<body>
+    <table class="catalog_customers">
+        <caption><a name="C0">{{month}}月EC库中各组新增变更处理情况统计</a></caption>
+
+    <tr>
+        <th>数量统计</th><th>待确认拒绝</th><th>待审核</th><th>实施中</th>
+        <th>已确认拒绝</th><th>待研究</th><th>已关闭</th>
+        <th>已上报</th><th>已作废</th><th>待关联请求处理</th><th>待确认重复</th><th>合计</th>
+    </tr>
+        {% for list in state_dict %}
+
+    <tr>
+        <td> <a href="#{{list.team_name}}">{{list.team_name}}</a></td>
+        <td>{{ list.wait_confirm_refuse_count }}</td>
+        <td>{{ list.wait_review_count }}</td><td>{{ list.implementing_count }}</td>
+        <td>{{ list.confirmed_refuse_count }}</td><td>{{ list.wait_research_count }}</td>
+        <td>{{ list.closed_count }}</td><td>{{ list.reported_count }}</td>
+        <td>{{ list.invalid_count }}</td><td>{{ list.wait_relate_handle_count }}</td>
+        <td>{{ list.wait_confirm_repeat_count }}</td><td>{{ list.team_summation }}</td>
+
+    </tr>
+        {% endfor %}
+
+    <tr align="CENTER">
+        <th>百分比统计</th><th>待确认拒绝</th><th>待审核</th><th>实施中</th>
+        <th>已确认拒绝</th><th>待研究</th><th>已关闭</th>
+        <th>已上报</th><th>已作废</th><th>待关联请求处理</th><th>待确认重复</th><th>合计</th>
+    </tr>
+        {% for list in state_dict %}
+
+    <tr align="CENTER">
+        <td>{{list.team_name}}</td><td>{{ list.wait_confirm_refuse_percent }}%</td>
+        <td>{{ list.wait_review_percent }}%</td><td>{{ list.implementing_percent }}%</td>
+        <td>{{ list.confirmed_refuse_percent }}%</td><td>{{ list.wait_research_percent }}%</td>
+        <td>{{ list.closed_percent }}%</td><td>{{ list.reported_percent }}%</td>
+        <td>{{ list.invalid_percent }}%</td><td>{{ list.wait_relate_handle_percent }}%</td>
+        <td>{{ list.wait_confirm_repeat_percent }}%</td><td>{{ 1 }}</td>
+    </tr>
+        {% endfor %}
+    </table>
+
+
+        {% for list in state_dict %}
+    <hr size="3" width="90%" align="center" >
+    <table class="children_customers">
+        <caption><a name="{{list.team_name}}">{{list.team_name}}组详情</a></caption>
+        <tr>
+            <th>编号</th><th>状态</th><th>产品</th> <th>主题</th>
+        </tr>
+        {% for item in list.wait_confirm_refuse %}
+            <tr>
+                <td>{{ item.number }}</td><td>待确认拒绝</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.wait_review %}
+            <tr>
+                <td>{{ item.number }}</td><td>待审核</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.implementing %}
+            <tr>
+                <td>{{ item.number }}</td><td>实施中</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.confirmed_refuse %}
+            <tr>
+                <td>{{ item.number }}</td><td>已确认拒绝</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.wait_research %}
+            <tr>
+                <td>{{ item.number }}</td><td>待研究</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.closed %}
+            <tr>
+                <td>{{ item.number }}</td><td>已关闭</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.reported %}
+            <tr>
+                <td>{{ item.number }}</td><td>已上报</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.invalid %}
+            <tr>
+                <td>{{ item.number }}</td><td>已作废</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.wait_relate_handle %}
+            <tr>
+                <td>{{ item.number }}</td><td>已作废</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+        {% for item in list.wait_confirm_repeat %}
+            <tr>
+                <td>{{ item.number }}</td><td>已作废</td> <td>{{ item.product }}</td> <td>{{ item.theme }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p class="children_customers"><a href="#C0">返回</a></p>
+    {% endfor %}
+</body>
+</html>

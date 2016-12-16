@@ -1,0 +1,26 @@
+<head>
+    <title>虚拟化南京一部月报系统</title>
+</head>
+{% include "base.html" %}
+<style>
+    p.small{line-height:70%; margin-left:5%;}
+    p.big{line-height:200%; margin-left:5%; font-size:20px;}
+    input.big{line-height:200%; margin-left:5%; font-size:20px;}
+    input.bigger{line-height:115%; margin-left:5%; font-size:20px;}
+</style>
+<body>
+<p class="big">
+    请选择本月月报文件，目前支持的文件类型有xls、xlsx
+</p>
+<br>
+<form method="post" enctype="multipart/form-data" accept-charset="utf-8">
+    {% csrf_token %}
+    <input type="file" name="upload_excel" accept=".csv,
+    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+    application/vnd.ms-excel" class="big">
+    <input type="submit" name="submit" value="提交" class="bigger">
+</form>
+<br>
+<p class="big">{{ upload_result }}</p>
+</body>
+
