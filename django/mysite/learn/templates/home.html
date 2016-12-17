@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>stju19</title>
+</head>
+<body>
+
+<p>
+    {% if string != 'hello' %}
+    string: {{ string }}
+    {% endif %}
+</p>
+<p>list: {{ list.0 }}</p>
+<p>dict: a: {{ dict.a }}; b: {{ dict.b }}</p>
+<p>
+    {{ request.user }}, {{ request.path }}
+</p>
+
+</body>
+</html>
