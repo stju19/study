@@ -1,21 +1,27 @@
 #! /bin/bash
 
-function bbb
+
+function foo
 {
-    echo
+    local num=$1
+    echo "job$num start"
+    sleep $num
+    echo "job$num end"
 }
 
-function aaa
+function calc_time
 {
-    bbb 
-    echo "byebye!"
+    if [ "$DEBUG" = "true" ]; then
+        time $@
+        echo [DEBUG] $@
+    else
+        $@
+    fi
 }
 
-echo "pro 1"
-trap "aaa;exit" SIGINT
-sleep 5
+# DEBUG=true
+# calc_time foo 5 0 && echo success5 &
+# calc_time foo 3 1 && echo success3 &
+# wait
 
-echo "pro 2"
-trap - SIGINT
-sleep 5
-echo ok
+echo $0

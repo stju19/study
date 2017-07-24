@@ -5,7 +5,11 @@
     <title>stju19</title>
 </head>
 <body>
-
+<header>
+<img src="{{ STATIC_URL }}images/background.jpg" align="left">
+</header>
+<div id="list"> 学习 </div>
+<div id='dict'></div>
 <p>
     {% if string != 'hello' %}
     string: {{ string }}
@@ -16,6 +20,8 @@
 <p>
     {{ request.user }}, {{ request.path }}
 </p>
-
+<p>JS</p>
+{{ setting.debug }}
 </body>
 </html>
+

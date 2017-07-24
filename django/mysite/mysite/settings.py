@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 """
 Django settings for mysite project.
 
@@ -30,6 +31,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# django.contrib是一套庞大的功能集，它是Django基本代码的组成部分，Django框架就是由众多包含附加组件(add-on)的基本代码构成的
+# 你可以把django.contrib看作是可选的Python标准库或普遍模式的实际实现
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,6 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -64,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.core.context_processors.i18n",
             ],
         },
     },
@@ -96,8 +101,65 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANGUAGES = (
+    ('en', 'English'),
+    ('zh-cn', 'Simplified Chinese'),
+    ('zh-tw', 'Chinese (Taiwan)'),
+)
+
+#翻译文件所在目录，需要手工创建
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# •MEDIA_ROOT：主要是为了存放上传的文件，比如在ImageField中，这个值加上upload_to的值就是真实存放上传图片的文件位置；Django里边文件内容实际上是不会存放到数据库里边的，大多数数据库存放数据效率低，需要保存在文件系统里。PS：FileUploads(用来存储文件)
+# •MEDIA_URL：URL的映射，前后要加上‘/’ 表示从根目录开始，比如“/site_media/”，加上这个属性之后，静态文件的链接前面会加上这个值。
+# •STATIC_ROOT：在这个文件里边的目录会当成静态文件处理。但是不能把自己辛苦写的Javascript或者图片等静态文件放进去。
+# •STATIC_URL：URL映射，指定静态目录的URL，默认的是"/static/"。
+# •STATICFILES_DIRS：指定一个工程里边哪个目录存放了与这个工程相关的静态文件，是一个列表。
+#  如果列表中有一个是 “/home/shishang/test/static”，其中有一个文件内容是productlist.html,
+#  我们只要访问http://localhost:8000/static/productlist.html就可以直接访问界面了。
+# •转：Django提供了一个方法自动地将所有的静态文件放在一起。
+# 只要在写App的时候创建一个static子目录专门保存静态文件就行了。
+# 在开发阶段，不必费心去做映射，不需要配置urls.py。
+# 在布署到生产环境的时候，只需要配置Apache把/static/映射到STATIC_ROOT。
+# 然后运行manage.py collectstatic，自动地STATICFILES_DIRS列出的目录以及各个App下的static子目录的所有文件复制到STATIC_ROOT。
+# 因为复制过程可能会覆盖掉原来的文件，所以，一定不能把我们辛苦做出来静态文件放这边！
+# 在开发阶段，Django把/static映射到django.contrib.staticfiles这个App。staticfiles自动地从STATICFILES_DIRS、STATIC_ROOT以及各个App的static子目录里面搜索静态文件。
+# 一旦布署到开发环境上，settings.py不需要重新编写，只要在Apache的配置文件里面写好映射，/static将会被Apache处理。
+# django.contrib.staticfiles虽然仍然存在，但因为不会接收到以/static/开始的路径，所以将不会产生作用。不必担心Django会使用处理速度变慢。
+# 另外，当settings.DEBUG is False的时候，staticfiles将自动关闭。
+
 STATIC_URL = '/static/'
+
+# 改变路径后要执行python manage.py collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+
+# MEDIA_ROOT = 'E:/my_work/my_git/mysite/media'
+
+# MEDIA_URL = '/my_git/mysite/media/'
+# MEDIA_URL = '/media/'
+
+# STATICFILES_DIRS = (
+#     # Put strings here, like "/home/html/static" or "C:/www/django/static".
+#     # Always use forward slashes, even on Windows.
+#     # Don't forget to use absolute paths, not relative paths.
+#     ('css',os.path.join(STATIC_ROOT,'css').replace('\\','/') ),
+#     ('js',os.path.join(STATIC_ROOT,'js').replace('\\','/') ),
+#     ('images',os.path.join(STATIC_ROOT,'images').replace('\\','/') ),
+# )
+
+# os.path.abspath()函数返回此路径的绝对路径
+# 要在django的tempalte file中引用css、js、gif等静态文件，首先一条setting.py中DEBUG开关打开
+# 1、在project目录下建立一个存放静态文件的目录，如：medias
+# 2、在url.py patterns中增加一行：
+#   url(r'^images/(?P<path>.*)$', 'django.views.static.serve',{'document_root': os.path.join(settings.STATIC_PATH, 'images')}),
+#   还要from django.conf import setting
+# 3、在setting.py中加入一行：
+#   STATIC_PATH='./medias'
+# 如此设置后，就可以在template file 中引用media中存放的静态文件了，如：
+#   img src='/site_media/django.gif'
+
