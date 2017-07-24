@@ -1,4 +1,13 @@
 *.py[cod]
+*.class
+
 .idea
+.gradle
+*.iml
+*.ipr
+*.iws
 
 .svn
+
+
+

@@ -20,12 +20,17 @@ utilities for myself
 
 %install
 install -d -m 755 %{buildroot}%{_bindir}
-install -p -D -m 755 jgq-utils/bin/podm-link.sh %{buildroot}%{_bindir}/podm-link
-install -p -D -m 755 jgq-utils/bin/podm-restart-services.sh %{buildroot}%{_bindir}/podm-restart-services
-install -p -D -m 755 jgq-utils/bin/podm-stop-services.sh %{buildroot}%{_bindir}/podm-stop-services
-install -p -D -m 755 jgq-utils/bin/set-proxy.sh %{buildroot}%{_bindir}/set-proxy
-install -p -D -m 755 jgq-utils/bin/jgq-git-config.sh %{buildroot}%{_bindir}/jgq-git-config
-install -p -D -m 755 jgq-utils/bin/jgq-docker.sh %{buildroot}%{_bindir}/jgq-docker
+install -d -m 755 %{buildroot}%{_bindir}/usr/share/jgq
+
+install -p -D -m 755 jgq-utils/bin/jgq.sh %{buildroot}%{_bindir}/jgq
+install -p -D -m 755 jgq-utils/usr/podm-link.sh %{buildroot}/usr/share/jgq/podm-link
+install -p -D -m 755 jgq-utils/usr/podm-restart-services.sh %{buildroot}/usr/share/jgq/podm-restart-services
+install -p -D -m 755 jgq-utils/usr/podm-stop-services.sh %{buildroot}/usr/share/jgq/podm-stop-services
+install -p -D -m 755 jgq-utils/usr/set-proxy.sh %{buildroot}/usr/share/jgq/set-proxy
+install -p -D -m 755 jgq-utils/usr/jgq-git-config.sh %{buildroot}/usr/share/jgq/jgq-git-config
+install -p -D -m 755 jgq-utils/usr/jgq-docker.sh %{buildroot}/usr/share/jgq/jgq-docker
+install -p -D -m 755 jgq-utils/usr/scala4uniview.sh %{buildroot}/usr/share/jgq/scala4uniview
+install -p -D -m 755 jgq-utils/usr/Uniview-update-service.sh %{buildroot}/usr/share/jgq/Uniview-update-service
 
 install -d -m 755 %{buildroot}%{_sysconfdir}/profile.d
 install -p -D -m 640 jgq-utils/etc/jgq-utils.bash_completion %{buildroot}%{_sysconfdir}/bash_completion.d/jgq-utils
@@ -38,6 +43,7 @@ install -p -D -m 644 jgq-utils/etc/local.repo %{buildroot}%{_sysconfdir}/yum.rep
 
 %files
 %{_bindir}/*
+/usr/share/jgq/*
 %{_sysconfdir}/profile.d/*
 %{_sysconfdir}/yum.repos.d/*
 %{_sysconfdir}/bash_completion.d/*

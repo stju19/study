@@ -10,13 +10,27 @@ import pdb
 # print i
 
 class A(object):
-    a=1
+    code="a"
     def __init__(self):
-        self.b=1
+        self.str = self.code
 
     def fun(self):
-        A.a+=1
+        import pdb;pdb.set_trace()
+        error_msg = "a PDUAlarm subclass must implement get_valid_addinfo"
+        raise NotImplementedError(error_msg)
 
-A().fun()
-A().fun()
-print A.a
+class B(A):
+    code="b"
+    # def fun(self):
+    #     print "B" + self.str
+
+class C(A):
+    code="c"
+    def fun(self):
+        print "C" + self.str
+
+bb=B()
+bb.fun()
+
+cc=C()
+cc.fun()

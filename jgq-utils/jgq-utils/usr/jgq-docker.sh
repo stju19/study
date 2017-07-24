@@ -1,7 +1,8 @@
 #! /bin/bash
 
 configure_file='/tmp/jgq-docker.conf'
-container_on0_ip=138.1.1.20
+container_on0_ip=138.1.1.3
+container_on1_ip=138.1.1.20
 
 function get_value
 {
@@ -21,18 +22,19 @@ function get_value
 
 function show_configure_file_template
 {
-    local image_id=`docker images|grep -w jgq|awk '{print $3}'`
+    local image_id=`docker images|grep -w jgq-docker|awk '{print $3}'`
     [[ "$image_id" = "" ]] && image_id=IMAGEID
     echo "configure file $configure_file maybe like:"
     cat <<EOF
 {
-  "old_container":""
   "docker_image":"$image_id"
   "container_name": "jgq-docker"
   "cmd": "-c /bin/sh"
   "run_opts": "--privileged -p 5080:80 -p 5022:22 -p 5336:3306 -v /home/jgq:/home/jgq"
   "exec_create_cmd": "sh /root/create.sh"
-  "ovs": "ovs-jgq $container_on0_ip/24"
+  "exec_start_cmd": "sh /root/start.sh"
+  "ovs": "ovs-br0-$user_name $container_on0_ip/24"
+  "ovs": "ovs-br1-$user_name $container_on1_ip/24"
 }
 EOF
 }
