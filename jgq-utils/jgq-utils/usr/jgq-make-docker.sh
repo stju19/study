@@ -60,6 +60,8 @@ EOF
 
     cat >create.sh <<EOF
 #! /bin/bash
+sleep 10
+sh /home/jgq/ZXOCSA/podm/tools/sql/rebuild.sh
 EOF
 cat >start.sh <<EOF
 #! /bin/bash
@@ -87,7 +89,7 @@ EOF
     # reinstall bash
     run $container_name "mkdir -p /home/bash"
     run $container_name "cd /home/bash; yumdownloader bash"
-    run $container_name "cd /home/bash; rpm -ivh --force bash"
+    run $container_name "cd /home/bash; rpm -ivh --force bash*.rpm"
     run $container_name "rm -rf /home/bash"
 
     user_define_func

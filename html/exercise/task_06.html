@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>IFE JavaScript Task 06</title>
+</head>
+<body>
+<textarea id="input" placeholder="请输入字符并用不同符号分隔" rows="3" cols="30"></textarea>
+<button id="left_in">左侧入</button>
+<button id="right_in">右侧入</button>
+<button id="left_out">左侧出</button>
+<button id="right_out">右侧出</button>
+<br>
+<label><input id="keyword" type="text"></label>
+<button id="search">查询</button>
+<div id="queue"></div>
+<script>
+    function left_in() {
+        var input_text = document.getElementById("input").value;
+        input_list = input_text.replace(/[^0-9a-zA-Z\u4e00-\u9fa5]/g, " ").split(/ +/);
+        for (let item of input_list){
+            var elem = document.createElement("div");
+            elem.style.backgroundColor = "#FF0000";
+            elem.style.margin = "5px";
+            elem.style.display = "inline-block";
+            elem.innerText = item;
+            var queue = document.getElementById("queue");
+            queue.insertBefore(elem, queue.firstChild)
+        }
+    }
+
+    function right_in(){
+        var input_text = document.getElementById("input").value;
+        input_list = input_text.replace(/[^0-9a-zA-Z\u4e00-\u9fa5]/g, " ").split(/ +/);
+        for (let item of input_list){
+            var elem = document.createElement("div");
+            elem.style.backgroundColor = "#FF0000";
+            elem.style.margin = "5px";
+            elem.style.display = "inline-block";
+            elem.innerText = item;
+            document.getElementById("queue").appendChild(elem)
+        }
+    }
+
+    function left_out(){
+        var queue = document.getElementById("queue");
+        queue.removeChild(queue.firstChild)
+    }
+
+    function right_out(){
+        var queue = document.getElementById("queue");
+        queue.removeChild(queue.lastChild)
+    }
+
+    function search() {
+        var keyword = document.getElementById("keyword").value;
+        var queue = Array.from(document.getElementById("queue").children);
+        queue.map(function (div) {
+            div.innerHTML = div.innerText.replace(new RegExp(keyword, 'g'), '<span>' + keyword + '</span>');
+            Array.from(div.getElementsByTagName("span")).map(function (span) {
+                span.style.backgroundColor = "#FFF000";
+                span.style.color = "#FF0000"
+            })
+        });
+    }
+
+    function remove_self(event){
+        var queue = document.getElementById("queue");
+        queue.removeChild(event.target)
+    }
+
+    function init(){
+        document.getElementById("left_in").onclick = left_in;
+        document.getElementById("right_in").onclick = right_in;
+        document.getElementById("left_out").onclick = left_out;
+        document.getElementById("right_out").onclick = right_out;
+        document.getElementById("search").onclick = search;
+        document.getElementById("queue").onclick = remove_self;
+    }
+
+    init()
+</script>
+</body>
+</html>

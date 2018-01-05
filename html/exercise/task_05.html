@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>IFE JavaScript Task 05</title>
+</head>
+<body>
+<label><input id="input" type="text"></label>
+<button id="left_in">左侧入</button>
+<button id="right_in">右侧入</button>
+<button id="left_out">左侧出</button>
+<button id="right_out">右侧出</button>
+<button id="sort_queue">排序</button>
+<div id="queue"></div>
+<script>
+    function left_in() {
+        var input_text = document.getElementById("input").value;
+        if ( isNaN(input_text) || input_text === ""){
+            alert("请输入数字")
+        }else if (parseInt(input_text) > 100 || parseInt(input_text) < 10) {
+            alert("请输入10到100之间的数字")
+        } else {
+            if (document.getElementById("queue").getElementsByTagName("div").length > 59){
+                alert("最多只能有60个小框");
+            } else{
+                var elem = document.createElement("div");
+                elem.style.backgroundColor = "#FF0000";
+                elem.style.margin = "2px";
+                elem.style.height = input_text + "px";
+                elem.style.width = "20px";
+                elem.style.display = "inline-block";
+                var queue = document.getElementById("queue");
+                queue.insertBefore(elem, queue.firstChild)
+            }
+        }
+    }
+
+    function right_in(){
+        var input_text = document.getElementById("input").value;
+        if ( isNaN(input_text) || input_text === ""){
+            alert("请输入数字");
+        }else if (parseInt(input_text) > 100 || parseInt(input_text) < 10) {
+            alert("请输入10到100之间的数字");
+        } else {
+            if (document.getElementById("queue").getElementsByTagName("div").length > 59){
+                alert("最多只能有60个小框");
+            } else {
+                var elem = document.createElement("div");
+                elem.style.backgroundColor = "#FF0000";
+                elem.style.margin = "2px";
+                elem.style.height = input_text + "px";
+                elem.style.width = "20px";
+                elem.style.display = "inline-block";
+                document.getElementById("queue").appendChild(elem);
+            }
+        }
+    }
+
+    function left_out(){
+        var queue = document.getElementById("queue");
+        queue.removeChild(queue.firstChild);
+    }
+
+    function right_out(){
+        var queue = document.getElementById("queue");
+        queue.removeChild(queue.lastChild);
+    }
+
+    function remove_self(event){
+        var queue = document.getElementById("queue");
+        queue.removeChild(event.target);
+    }
+
+    function sort_queue() {
+        var queue_arr = Array.from(document.getElementById("queue").children);
+        queue_arr.sort(function (x, y) {
+            return x.style.height > y.style.height;
+        });
+        document.getElementById("queue").innerHTML = "";
+        for (let div of queue_arr){
+            document.getElementById("queue").appendChild(div);
+        }
+    }
+
+    function init(){
+        document.getElementById("left_in").onclick = left_in;
+        document.getElementById("right_in").onclick = right_in;
+        document.getElementById("left_out").onclick = left_out;
+        document.getElementById("right_out").onclick = right_out;
+        document.getElementById("sort_queue").onclick = sort_queue;
+        document.getElementById("queue").onclick = remove_self;
+    }
+
+    init()
+</script>
+</body>
+</html>

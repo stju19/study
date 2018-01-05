@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>IFE JavaScript Task 04</title>
+</head>
+<body>
+<label><input id="input" type="text"></label>
+<button id="left_in">左侧入</button>
+<button id="right_in">右侧入</button>
+<button id="left_out">左侧出</button>
+<button id="right_out">右侧出</button>
+<div id="queue"></div>
+<script>
+    function left_in() {
+        var input_text = document.getElementById("input").value;
+        var elem = document.createElement("span");
+        elem.style.backgroundColor = "#FF0000";
+        elem.style.margin = "5px";
+        elem.innerText = input_text;
+        var queue = document.getElementById("queue");
+        queue.insertBefore(elem, queue.firstChild)
+    }
+
+    function right_in(){
+        var input_text = document.getElementById("input").value;
+        var elem = document.createElement("span");
+        elem.style.backgroundColor = "#FF0000";
+        elem.style.margin = "5px";
+        elem.innerText = input_text;
+        document.getElementById("queue").appendChild(elem)
+    }
+
+    function left_out(){
+        var queue = document.getElementById("queue");
+        queue.removeChild(queue.firstChild)
+    }
+
+    function right_out(){
+        var queue = document.getElementById("queue");
+        queue.removeChild(queue.lastChild)
+    }
+
+    function remove_self(event){
+        var queue = document.getElementById("queue");
+        queue.removeChild(event.target)
+    }
+
+    function init(){
+        document.getElementById("left_in").onclick = left_in;
+        document.getElementById("right_in").onclick = right_in;
+        document.getElementById("left_out").onclick = left_out;
+        document.getElementById("right_out").onclick = right_out;
+        document.getElementById("queue").onclick = remove_self;
+    }
+
+    init()
+</script>
+</body>
+</html>

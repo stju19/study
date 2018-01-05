@@ -1,4 +1,5 @@
 apply plugin: 'scala'
+apply plugin: 'scalaStyle'
 
 repositories {
     maven{
@@ -21,7 +22,30 @@ dependencies {
 //    compile "org.scalatra:scalatra-json_2.10:$scalatraVersion"
 }
 
+buildscript {
+    repositories {
+        maven{
+            url "http://10.62.97.45:8081/nexus/content/groups/public"
+        }
+    }
+    dependencies {
+        classpath 'com.sqality:gradle-scct:0.4.1'
+        classpath 'org.github.mansur.scalastyle:gradle-scalastyle-plugin_2.10:0.4.1'
+        classpath 'org.scalastyle:scalastyle_2.10:0.4.0'
+        classpath 'org.scala-lang:scala-library:2.10.3'
+        classpath 'com.github.scopt:scopt_2.10:3.2.0'
+        classpath 'org.scalariform:scalariform_2.10:0.1.4'
+        classpath 'com.sqality.scct:scct_2.10:0.2.2'
+    }
+}
 //jar {
 //    metaInf { from 'resources/META-INF' }
 //    //classpath = jar.outputs.files + configurations.compile + configurations.runtime
 //}
+
+scalaStyle {
+    configLocation = "scalastylexml-0.0.1.xml"
+    includeTestSourceDirectory = false
+    source = "src/main/scala"
+    testSource = "src/test/scala"
+}

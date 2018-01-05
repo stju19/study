@@ -39,9 +39,30 @@ function show_configure_file_template
 EOF
 }
 
-function init
+function create_configure_file
 {
-    [[ -f "$configure_file" ]] || { echo "$configure_file is not existed";show_configure_file_template;exit 1; }
+    local image_id=`docker images|grep -w jgq-docker|awk '{print $3}'`
+    [[ "$image_id" = "" ]] && image_id=IMAGEID
+    cat >$configure_file <<EOF
+{
+  "docker_image":"$image_id"
+  "container_name": "jgq-docker"
+  "cmd": "-c /bin/sh"
+  "run_opts": "--privileged -p 5080:80 -p 5022:22 -p 5336:3306 -v /home/jgq:/home/jgq"
+  "exec_create_cmd": "sh /root/create.sh"
+  "exec_start_cmd": "sh /root/start.sh"
+  "ovs": "ovs-br0-$user_name $container_on0_ip/24"
+  "ovs": "ovs-br1-$user_name $container_on1_ip/24"
+}
+EOF
+}
+
+function jgq_docker_init
+{
+    [[ -f "$configure_file" ]] || {
+        echo "$configure_file is not existed, creating $configure_file ..."
+        create_configure_file
+    }
     get_value container_name && container=$value
 }
 
@@ -101,6 +122,6 @@ function main
     esac
 }
 
-init
+jgq_docker_init
 main $@
 exit 0

@@ -59,6 +59,7 @@ function parse_args
     else
         service_name=$1
     fi
+    [[ "$service_name" = "uniView" ]] && service_name=hwm
     [[ "$service_name" = hwm ]] && compile_path=$ztes_project_root/uniView || compile_path=$ztes_project_root/$service_name
     [[ -d "$compile_path" ]] || { echo "Failed to get service $service_name, please check project path $ztes_project_root"; exit 1; }
 }

@@ -76,14 +76,16 @@ EOF
     run $container_name "rm -rf /etc/yum.repos.d/*"
     docker cp $repo_file $container_name:/etc/yum.repos.d/jgq.repo
     rm -rf $repo_file
-    run $container_name "yum -y install bash-completion tar passwd createrepo net-tools httpd perl vim perl-DBI nmap-ncat libaio \
-        initscripts cyrus-sasl libicu logrotate python-setuptools python-pyasn1 pytz python-ldap PyPAM openssl python-paste PyYAML \
-        python-decorator python-mako python-chardet dhcp tftp-server syslinux nfs-utils fontpackages-filesystem cronie python-lxml \
-        sudo openssh-server openssh-clients python-dateutil python-memcached vsftpd net-snmp net-snmp-utils web.py man-db man-pages \
-        zip unzip ntp chrony telnet wget"
+    run $container_name "yum -y install bash-completion tar passwd createrepo net-tools httpd perl \
+        vim perl-DBI nmap-ncat libaio initscripts cyrus-sasl libicu logrotate python-setuptools \
+        python-pyasn1 pytz python-ldap PyPAM openssl python-paste PyYAML python-decorator python-mako \
+        python-chardet dhcp tftp-server syslinux nfs-utils fontpackages-filesystem cronie python-lxml \
+        sudo openssh-server openssh-clients python-dateutil python-memcached vsftpd web.py man-db \
+        man-pages zip unzip ntp chrony telnet wget rpm-build net-snmp net-snmp-utils"
     run $container_name "yum -y install e2fsprogs lvm2 cifs-utils psmisc xfsprogs ethtool rsync lsof expect"
-    run $container_name "yum -y install cluster-glue cluster-glue-libs corosync corosynclib libqb pacemaker pacemaker-cli \
-        pacemaker-cluster-libs pacemaker-libs pacemaker-remote pcs resource-agents pciutils"
+    run $container_name "yum -y install cluster-glue cluster-glue-libs corosync corosynclib libqb \
+        pacemaker pacemaker-cli pacemaker-cluster-libs pacemaker-libs pacemaker-remote pcs pciutils \
+        net-snmp net-snmp-utils"
 
     install_uniview_dev
 

@@ -1,6 +1,12 @@
-all:
+all: clean
 	scalac src/main/scala/Hello.scala
-	scala src/main/scala/Hello.scala
+	scala Hello
 
 hello:
-	scala src/main/scala/Hello.scala
+	scala Hello
+
+ci:
+	gradle scalaStyle
+
+clean:
+	rm -rf *.class

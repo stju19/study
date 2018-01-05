@@ -1,0 +1,2782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="simian.xsl" type="text/xsl"?>
+<!--
+Similarity Analyser 2.5.3 - http://www.harukizaemon.com/simian
+Copyright (c) 2003-2017 Simon Harris.  All rights reserved.
+Simian is not free unless used solely for non-commercial or evaluation purposes.
+-->
+<simian version="2.5.3">
+    <check failOnDuplication="true" ignoreCharacterCase="true" ignoreCurlyBraces="true" ignoreIdentifierCase="true" ignoreModifiers="true" ignoreStringCase="true" reportDuplicateText="true" threshold="10">
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Update/source/update_msg.c" startLineNumber="1243" endLineNumber="1258"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Update/source/update_msg.c" startLineNumber="1207" endLineNumber="1222"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/BoardCtrl/source/jgq.c" startLineNumber="62" endLineNumber="77"/>
+            <text>
+<![CDATA[    ptUpdateIpmc->dwSiteNum = dwSiteNum;
+    /* ÌîÐ´¹Ì¼þÀàÐÍ */
+    ptUpdateIpmc->dwFirmType = dwVersionType;
+
+    if( dwIndex == 0 )
+    {
+        g_tUpAgHead.ptIpmcHead = ptUpdateIpmc; /* Á´½ÓÍ· */
+        ptPreIpmc = ptUpdateIpmc;
+        dwIndex++;
+    }
+    else
+    {
+        if(NULL != ptPreIpmc)
+        {
+            ptPreIpmc->ptNextIpmc = ptUpdateIpmc;
+            ptPreIpmc = ptPreIpmc->ptNextIpmc;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/Restful_ModuleHnd.c" startLineNumber="4482" endLineNumber="4494"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/FanManager/source/restful_fan.c" startLineNumber="366" endLineNumber="378"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/TMCSelfManager/source/restful_tmchnd.c" startLineNumber="2000" endLineNumber="2012"/>
+            <text>
+<![CDATA[    char *value_keys[] = {"\"Variable0\":","\"Variable1\":","\"Variable2\":","\"Variable3\":",
+                          "\"Variable4\":","\"Variable5\":","\"Variable6\":"
+                         };
+    if(NULL != strstr(pIn,"BSP_DbgFunction_AddAll")) { //�״ν��������лᷢ��'BSP_DbgFunction_AddAll'����������ִ�г�ʼ��
+        BSP_DbgFunction_AddAll();
+        return BSP_OK;
+    }
+    for(index = 0; index < SIZE_ARRAY(keys); index++) {
+        if(NULL != strstr(pIn,keys[index]))
+            break;
+    }
+    if(index == SIZE_ARRAY(keys))
+        return RPC_ERROR_RESOURCE_ABSENT;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="3770" endLineNumber="3782"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="1140" endLineNumber="1152"/>
+            <text>
+<![CDATA[	cJSON *root;
+	
+	WORD32 dwResult = BSP_OK;
+	WORD32 msgLen = sizeof(GetIn);
+	WORD32 ackLen = sizeof(GetComputeModuleOut);
+
+	int ret = 0;
+   	ret |= ParseParam(pPara, GetIn.drawerId, URL_DRAWER_ID);
+   	ret |= ParseParam(pPara, GetIn.moduleId, URL_MODULE_ID);
+	if (ret)
+	{
+		printf("Status:%d\r\n",STATUS_ABSENT);
+		return NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/OpenIPMIManager/source/OpenIPMI_ThreadDomain.c" startLineNumber="1372" endLineNumber="1384"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/OpenIPMIManager/source/OpenIPMI_ThreadDomain.c" startLineNumber="1321" endLineNumber="1332"/>
+            <text>
+<![CDATA[    WORD32 dwResult = 0;
+    BYTE ucModuleIndex = 0;
+    BYTE ucSenIndex = 0;
+    BYTE ownerFruId = 0;
+    int senLun = 0;
+    int senNum = 0;
+    T_SiteDomainInfo *pSiteDomainArg;
+
+
+    if(NULL == cb_data) {
+        syslog(LOG_ERR,  "%s. cb_data  is NULL\n", __FUNCTION__);
+        return;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/bin/mongooseCode/examples/upload.c" startLineNumber="115" endLineNumber="129"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/bin/mongooseCode/examples/hello.c" startLineNumber="22" endLineNumber="36"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/bin/mongooseCode/examples/post.c" startLineNumber="46" endLineNumber="60"/>
+            <text>
+<![CDATA[    return "";
+  } else {
+    return NULL;
+  }
+}
+
+int main(void) {
+  struct mg_context *ctx;
+  const char *options[] = {"listening_ports", "8080", NULL};
+
+  ctx = mg_start(&callback, NULL, options);
+  getchar();  // Wait until user hits "enter"
+  mg_stop(ctx);
+
+  return 0;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="1104" endLineNumber="1118"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="947" endLineNumber="961"/>
+            <text>
+<![CDATA[            ptSystemInfo->systemId);
+    if(mysql_stmt_prepare(db_stmt, stmt_str, strlen(stmt_str)) != 0) {
+        syslog(LOG_PERROR,"%s : Could not prepare SELECT statement\n", __FUNCTION__);
+        print_mysql_error();
+        return ERROR_DB_INITSTMT;
+    }
+
+    if(mysql_stmt_field_count(db_stmt) != 2) {
+        syslog(LOG_PERROR,"%s : Unexpected column count from SELECT\n", __FUNCTION__);
+        return ERROR_DB_INVALIDCOUNT;
+    }
+
+    memset((void *)&param, 0, sizeof(param));
+
+    param[0].buffer_type = MYSQL_TYPE_STRING;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="452" endLineNumber="462"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="458" endLineNumber="468"/>
+            <text>
+<![CDATA[	pMemory->totalWidthBits = GetJsonNumber(json_Memory, "\"TotalWidthBits\":");
+	GetJsonString(json_Memory, "\"FormFactor\":", pMemory->formFactor, sizeof(pMemory->formFactor));
+	GetJsonString(json_Memory, "\"SerialNumber\":", pMemory->serialNumber, sizeof(pMemory->serialNumber));
+	GetJsonString(json_Memory, "\"AssetTag\":", pMemory->assetTag, sizeof(pMemory->assetTag));
+	GetJsonString(json_Memory, "\"PartNumber\":", pMemory->partNumber, sizeof(pMemory->partNumber));
+	GetJsonString(json_Memory, "\"Rank\":", pMemory->rank, sizeof(pMemory->rank));
+	GetJsonString(json_Memory, "\"ConfiguredSpeedMHz\":", pMemory->configuredSpeedMHz, sizeof(pMemory->configuredSpeedMHz));
+	GetJsonString(json_Memory, "\"MinimumVoltageVolt\":", pMemory->minimumVoltageVolt, sizeof(pMemory->minimumVoltageVolt));
+	GetJsonString(json_Memory, "\"MaximumVoltageVolt\":", pMemory->maximumVoltageVolt, sizeof(pMemory->maximumVoltageVolt));
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="2003" endLineNumber="2016"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="1853" endLineNumber="1866"/>
+            <text>
+<![CDATA[			(BYTE*)&getIn,
+			msgLen,
+			(BYTE*)&getout,
+			&ackLen,
+			MONGOOSE_TID_RABBITMQ,
+			RABBITMQ_DEST(getIn.managerId),
+			MSG_TIMEOUT);
+	
+	if (CheckMsgResult(getout.result, dwResult) != BSP_OK)
+	{
+		return NULL;
+	}
+	
+	root = cJSON_CreateObject();
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="1245" endLineNumber="1260"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="517" endLineNumber="532"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="382" endLineNumber="397"/>
+            <text>
+<![CDATA[    param.is_null = &is_null;
+
+    if(mysql_stmt_bind_result(db_stmt, &param) != 0) {
+        syslog(LOG_PERROR,"%s : Could not bind parameters for SELECT\n", __FUNCTION__);
+        return ERROR_DB_BOUNDPARA;
+    }
+
+    if(mysql_stmt_execute(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not execute statement\n", __FUNCTION__);
+        return ERROR_DB_EXE;
+    }
+
+    /* ��ȡ����� */
+    if(mysql_stmt_store_result(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not buffer result set\n", __FUNCTION__);
+        return ERROR_DB_FETCH_RESULT;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="1128" endLineNumber="1143"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="971" endLineNumber="986"/>
+            <text>
+<![CDATA[    param[1].is_null = &is_null[1];
+    
+    if(mysql_stmt_bind_result(db_stmt, param) != 0) {
+        syslog(LOG_PERROR,"%s : Could not bind parameters for SELECT\n", __FUNCTION__);
+        return ERROR_DB_BOUNDPARA;
+    }
+
+    if(mysql_stmt_execute(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not execute statement\n", __FUNCTION__);
+        return ERROR_DB_EXE;
+    }
+
+    /* ��ȡ����� */
+    if(mysql_stmt_store_result(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not buffer result set\n", __FUNCTION__);
+        return ERROR_DB_FETCH_RESULT;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="71" endLineNumber="81"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="37" endLineNumber="47"/>
+            <text>
+<![CDATA[	if (xdrs->x_op == XDR_ENCODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->versionid))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->cmdid))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->completioncode))
+				 return FALSE;
+
+		} else {
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="1059" endLineNumber="1076"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="973" endLineNumber="990"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="902" endLineNumber="919"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="823" endLineNumber="840"/>
+            <text>
+<![CDATA[    if(mysql_stmt_bind_result(db_stmt, param) != 0) {
+        syslog(LOG_PERROR,"%s : Could not bind parameters for SELECT\n", __FUNCTION__);
+        return ERROR_DB_BOUNDPARA;
+    }
+
+    if(mysql_stmt_execute(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not execute statement\n", __FUNCTION__);
+        return ERROR_DB_EXE;
+    }
+
+    /* ��ȡ����� */
+    if(mysql_stmt_store_result(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not buffer result set\n", __FUNCTION__);
+        return ERROR_DB_FETCH_RESULT;
+    }
+
+    /* ��ȡÿһ�� */
+    while(mysql_stmt_fetch(db_stmt) == 0)
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="213" endLineNumber="226"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="192" endLineNumber="205"/>
+            <text>
+<![CDATA[	WORD32 index = 0;
+	WORD32 length = 0;
+
+	if(NULL ==str){
+		return -1;
+	}
+
+	length = strlen(str);
+	for(index = 0;index < length;index++){
+		if((*(str + index) == '\n')&&index == length-1){
+			*(str + index) = '\0';
+		}
+		else if((*(str + index) < '0')||(*(str + index) > '9')){
+			return -1;
+]]>
+            </text>
+        </set>
+        <set lineCount="10">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="2667" endLineNumber="2680"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="2623" endLineNumber="2636"/>
+            <text>
+<![CDATA[				(BYTE*)&GetIn,
+				msgLen,
+				(BYTE*)&getswitchout,
+				&ackLen,
+				MONGOOSE_TID_RABBITMQ,
+				MODULE_REST_TID_RABBITMQ,
+				MSG_TIMEOUT);
+				
+	if (CheckMsgResult(getswitchout.result, dwResult) != BSP_OK)
+	{
+		return NULL;
+	}
+	
+    root = cJSON_CreateObject();
+]]>
+            </text>
+        </set>
+        <set lineCount="11">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="1075" endLineNumber="1096"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="977" endLineNumber="998"/>
+            <text>
+<![CDATA[	json2fruInfo(pos, &pfanAttri->FRUInfo);
+
+	return;
+}
+
+void json2connectTypeStr(CHAR *json_connectTypeStr, connectTypeStr *pconnectTypeStr)
+{
+	if (json_connectTypeStr == NULL) return;
+
+	GetJsonString(json_connectTypeStr, "\"Connnect\":", pconnectTypeStr->connnect, sizeof(pconnectTypeStr->connnect));
+
+	return;
+}
+
+void json2consoleInfo(CHAR *json_consoleInfo, consoleInfo *pconsoleInfo)
+{
+	if (json_consoleInfo == NULL) return;
+
+	pconsoleInfo->enabled = GetJsonNumber(json_consoleInfo, "\"Enabled\":");
+	pconsoleInfo->maxConCurrent = GetJsonNumber(json_consoleInfo, "\"MaxConCurrent\":");
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="11">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="821" endLineNumber="840"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="900" endLineNumber="919"/>
+            <text>
+<![CDATA[    param[2].is_null = &is_null[2];
+
+    if(mysql_stmt_bind_result(db_stmt, param) != 0) {
+        syslog(LOG_PERROR,"%s : Could not bind parameters for SELECT\n", __FUNCTION__);
+        return ERROR_DB_BOUNDPARA;
+    }
+
+    if(mysql_stmt_execute(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not execute statement\n", __FUNCTION__);
+        return ERROR_DB_EXE;
+    }
+
+    /* ��ȡ����� */
+    if(mysql_stmt_store_result(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not buffer result set\n", __FUNCTION__);
+        return ERROR_DB_FETCH_RESULT;
+    }
+
+    /* ��ȡÿһ�� */
+    while(mysql_stmt_fetch(db_stmt) == 0)
+]]>
+            </text>
+        </set>
+        <set lineCount="11">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="385" endLineNumber="403"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="520" endLineNumber="538"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="1131" endLineNumber="1149"/>
+            <text>
+<![CDATA[        syslog(LOG_PERROR,"%s : Could not bind parameters for SELECT\n", __FUNCTION__);
+        return ERROR_DB_BOUNDPARA;
+    }
+
+    if(mysql_stmt_execute(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not execute statement\n", __FUNCTION__);
+        return ERROR_DB_EXE;
+    }
+
+    /* ��ȡ����� */
+    if(mysql_stmt_store_result(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not buffer result set\n", __FUNCTION__);
+        return ERROR_DB_FETCH_RESULT;
+    }
+
+    if(mysql_stmt_fetch(db_stmt) != 0)
+    {
+        mysql_stmt_free_result(db_stmt);
+        return ERROR_DB_RESULT_EMPTY;
+]]>
+            </text>
+        </set>
+        <set lineCount="11">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Rabbitmq/source/rabbitMqLib.c" startLineNumber="581" endLineNumber="592"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Rabbitmq/source/rabbitMqLib.c" startLineNumber="875" endLineNumber="886"/>
+            <text>
+<![CDATA[	result = amqp_basic_publish(connection,
+                                channel,
+                                amqp_cstring_bytes("amq.direct"),
+                                amqp_cstring_bytes(pRoutingKey),
+                                0,
+                                0,
+                                &properties,
+                                amqpSend);
+	if (result < 0)
+	{
+		syslog(LOG_ERR, "%s: %s\n", "Publishing", amqp_error_string2(result));
+		result = ERROR_AMQP_PUBLISH;
+]]>
+            </text>
+        </set>
+        <set lineCount="11">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="513" endLineNumber="525"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="584" endLineNumber="596"/>
+            <text>
+<![CDATA[	 if (!xdr_u_int (xdrs, &objp->count))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->processorSockets))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->processorFamily, HOST_PROCESSOR_FAMILY_LEN))
+		 return FALSE;
+	 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr__bladeMemory (XDR *xdrs, _bladeMemory *objp)
+]]>
+            </text>
+        </set>
+        <set lineCount="11">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="207" endLineNumber="222"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="180" endLineNumber="195"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2Drawer(CHAR *json_Drawer, Drawer *pDrawer)
+{
+	if (json_Drawer == NULL) return;
+
+	GetJsonString(json_Drawer, "\"Id\":", pDrawer->id, sizeof(pDrawer->id));
+	GetJsonString(json_Drawer, "\"Name\":", pDrawer->name, sizeof(pDrawer->name));
+	GetJsonString(json_Drawer, "\"Modified\":", pDrawer->modified, sizeof(pDrawer->modified));
+	GetJsonString(json_Drawer, "\"ChassisType\":", pDrawer->chassisType, sizeof(pDrawer->chassisType));
+	GetJsonString(json_Drawer, "\"Manufacturer\":", pDrawer->manufacturer, sizeof(pDrawer->manufacturer));
+	GetJsonString(json_Drawer, "\"Model\":", pDrawer->model, sizeof(pDrawer->model));
+	GetJsonString(json_Drawer, "\"SerialNumber\":", pDrawer->serialNumber, sizeof(pDrawer->serialNumber));
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="11">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="1247" endLineNumber="1267"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="1190" endLineNumber="1210"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2PatchBladeBootOut(CHAR *json_PatchBladeBootOut, PatchBladeBootOut *pPatchBladeBootOut)
+{
+	if (json_PatchBladeBootOut == NULL) return;
+
+	pPatchBladeBootOut->result = GetJsonNumber(json_PatchBladeBootOut, "\"Result\":");
+
+	return;
+}
+
+void json2PatchBladeBootIn(CHAR *json_PatchBladeBootIn, PatchBladeBootIn *pPatchBladeBootIn)
+{
+	if (json_PatchBladeBootIn == NULL) return;
+
+	GetJsonString(json_PatchBladeBootIn, "\"DrawerId\":", pPatchBladeBootIn->drawerId, sizeof(pPatchBladeBootIn->drawerId));
+	GetJsonString(json_PatchBladeBootIn, "\"ModuleId\":", pPatchBladeBootIn->moduleId, sizeof(pPatchBladeBootIn->moduleId));
+	GetJsonString(json_PatchBladeBootIn, "\"BladeId\":", pPatchBladeBootIn->bladeId, sizeof(pPatchBladeBootIn->bladeId));
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="216" endLineNumber="233"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="243" endLineNumber="260"/>
+            <text>
+<![CDATA[	json2Drawer(pos, &pGetDrawerOut->drawer);
+
+	return;
+}
+
+void json2ComputeModule(CHAR *json_ComputeModule, ComputeModule *pComputeModule)
+{
+	if (json_ComputeModule == NULL) return;
+
+	GetJsonString(json_ComputeModule, "\"Id\":", pComputeModule->id, sizeof(pComputeModule->id));
+	GetJsonString(json_ComputeModule, "\"Name\":", pComputeModule->name, sizeof(pComputeModule->name));
+	GetJsonString(json_ComputeModule, "\"Modified\":", pComputeModule->modified, sizeof(pComputeModule->modified));
+	GetJsonString(json_ComputeModule, "\"ChassisType\":", pComputeModule->chassisType, sizeof(pComputeModule->chassisType));
+	GetJsonString(json_ComputeModule, "\"Manufacturer\":", pComputeModule->manufacturer, sizeof(pComputeModule->manufacturer));
+	GetJsonString(json_ComputeModule, "\"Model\":", pComputeModule->model, sizeof(pComputeModule->model));
+	GetJsonString(json_ComputeModule, "\"SerialNumber\":", pComputeModule->serialNumber, sizeof(pComputeModule->serialNumber));
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="832" endLineNumber="852"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="912" endLineNumber="932"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2fruInfo(CHAR *json_fruInfo, fruInfo *pfruInfo)
+{
+	if (json_fruInfo == NULL) return;
+
+	GetJsonString(json_fruInfo, "\"SerialNumber\":", pfruInfo->serialNumber, sizeof(pfruInfo->serialNumber));
+	GetJsonString(json_fruInfo, "\"Manufacturer\":", pfruInfo->manufacturer, sizeof(pfruInfo->manufacturer));
+	GetJsonString(json_fruInfo, "\"Model\":", pfruInfo->model, sizeof(pfruInfo->model));
+	GetJsonString(json_fruInfo, "\"PartNumber\":", pfruInfo->partNumber, sizeof(pfruInfo->partNumber));
+	GetJsonString(json_fruInfo, "\"FirmwareRevision\":", pfruInfo->firmwareRevision, sizeof(pfruInfo->firmwareRevision));
+
+	return;
+}
+
+void json2powerCapability(CHAR *json_powerCapability, powerCapability *ppowerCapability)
+{
+	if (json_powerCapability == NULL) return;
+
+	GetJsonString(json_powerCapability, "\"PropertyName\":", ppowerCapability->propertyName, sizeof(ppowerCapability->propertyName));
+]]>
+            </text>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="3948" endLineNumber="3961"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="2722" endLineNumber="2735"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="1264" endLineNumber="1277"/>
+            <text>
+<![CDATA[				(BYTE*)&tPatchInfoIn,
+				msgLen,
+				(BYTE*)&tPatchResult,
+				&ackLen,
+				MONGOOSE_TID_RABBITMQ,
+				MODULE_REST_TID_RABBITMQ,
+				MSG_TIMEOUT);
+
+	if(BSP_OK == dwResult && BSP_OK == tPatchResult.result) {
+		printf("Status:%d\r\n",STATUS_PATCH_SUCESS);
+	} else {
+		printf("Status:%d\r\n",STATUS_ABSENT);
+	}
+    return NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="323" endLineNumber="339"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="340" endLineNumber="356"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2Blade(CHAR *json_Blade, Blade *pBlade)
+{
+	if (json_Blade == NULL) return;
+
+	GetJsonString(json_Blade, "\"Id\":", pBlade->id, sizeof(pBlade->id));
+	GetJsonString(json_Blade, "\"Name\":", pBlade->name, sizeof(pBlade->name));
+	GetJsonString(json_Blade, "\"Modified\":", pBlade->modified, sizeof(pBlade->modified));
+	GetJsonString(json_Blade, "\"SystemType\":", pBlade->systemType, sizeof(pBlade->systemType));
+	GetJsonString(json_Blade, "\"Manufacturer\":", pBlade->manufacturer, sizeof(pBlade->manufacturer));
+	GetJsonString(json_Blade, "\"Model\":", pBlade->model, sizeof(pBlade->model));
+	GetJsonString(json_Blade, "\"SerialNumber\":", pBlade->serialNumber, sizeof(pBlade->serialNumber));
+	GetJsonString(json_Blade, "\"Power\":", pBlade->power, sizeof(pBlade->power));
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="658" endLineNumber="669"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="573" endLineNumber="584"/>
+            <text>
+<![CDATA[	 if (!xdr_opaque (xdrs, objp->actionsType, GENERAL_STR_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->targets, GENERAL_STR_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->currentAction, HOST_RESET_TYPE_LENGTH))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->supportedActionNum))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->allActions, HOST_RESET_TYPE_COUNT,
+		sizeof (_actionStr), (xdrproc_t) xdr__actionStr))
+		 return FALSE;
+	return TRUE;
+]]>
+            </text>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="398" endLineNumber="413"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="406" endLineNumber="421"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2Processor(CHAR *json_Processor, Processor *pProcessor)
+{
+	if (json_Processor == NULL) return;
+
+	GetJsonString(json_Processor, "\"Id\":", pProcessor->id, sizeof(pProcessor->id));
+	GetJsonString(json_Processor, "\"Name\":", pProcessor->name, sizeof(pProcessor->name));
+	GetJsonString(json_Processor, "\"Modified\":", pProcessor->modified, sizeof(pProcessor->modified));
+	GetJsonString(json_Processor, "\"Socket\":", pProcessor->socket, sizeof(pProcessor->socket));
+	GetJsonString(json_Processor, "\"Manufacturer\":", pProcessor->manufacturer, sizeof(pProcessor->manufacturer));
+	GetJsonString(json_Processor, "\"Model\":", pProcessor->model, sizeof(pProcessor->model));
+	GetJsonString(json_Processor, "\"ProcessorType\":", pProcessor->processorType, sizeof(pProcessor->processorType));
+	GetJsonString(json_Processor, "\"ProcessorArchitecture\":", pProcessor->processorArchitecture, sizeof(pProcessor->processorArchitecture));
+	GetJsonString(json_Processor, "\"InstructionSet\":", pProcessor->instructionSet, sizeof(pProcessor->instructionSet));
+]]>
+            </text>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Rabbitmq/source/rabbitMqLib.c" startLineNumber="687" endLineNumber="702"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Rabbitmq/source/rabbitMqLib.c" startLineNumber="584" endLineNumber="599"/>
+            <text>
+<![CDATA[                                amqp_cstring_bytes(pRoutingKey),
+                                0,
+                                0,
+                                &properties,
+                                amqpSend);
+	if (result < 0)
+	{
+		syslog(LOG_ERR, "%s: %s\n", "Publishing", amqp_error_string2(result));
+		result = ERROR_AMQP_PUBLISH;
+		goto out;
+	}
+
+out:
+	amqp_bytes_free(amqpSend);
+		
+	return (WORD32)result;	
+]]>
+            </text>
+        </set>
+        <set lineCount="12">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Update/source/update_msg.c" startLineNumber="1689" endLineNumber="1701"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Update/source/update_msg.c" startLineNumber="1654" endLineNumber="1666"/>
+            <text>
+<![CDATA[    else
+    {
+        ptGetVersionInfoOut->versionInfos[dwIndex].funcType = tFwInfo.tGetVersionNumResp.functype;
+        ptGetVersionInfoOut->versionInfos[dwIndex].index = 1;
+        ptGetVersionInfoOut->versionInfos[dwIndex].location = 0;
+        ptGetVersionInfoOut->versionInfos[dwIndex].siteNum = dwSiteNum;
+        ptGetVersionInfoOut->versionInfos[dwIndex].siteType = dwSiteType;
+        dwVersionNo = tFwInfo.tGetVersionNumResp.versionnum;
+        ucRosVer = (dwVersionNo>>24) & 0xff;
+        ucProjectVer = (dwVersionNo>>16) & 0xff;
+        ucBuildVer = (dwVersionNo>>8) & 0xff;
+        ucRevsVer = dwVersionNo & 0xff;
+        sprintf(ptGetVersionInfoOut->versionInfos[dwIndex].verNo, "%d.%d.%d.%d", ucRosVer, ucProjectVer, ucBuildVer, ucRevsVer);
+]]>
+            </text>
+        </set>
+        <set lineCount="13">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/Restful_ModuleHnd.c" startLineNumber="1378" endLineNumber="1394"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Update/source/update_msg.c" startLineNumber="973" endLineNumber="993"/>
+            <text>
+<![CDATA[WORD32 OpenIPMI_FRUChanged(BYTE *pData,
+                           WORD32 msgLen,
+                           BYTE *pAckData,
+                           WORD32 *pAckLen)
+{
+    T_BSP_FRUState_NoticeInfo *pRecvMsg = NULL;
+
+    pRecvMsg = (T_BSP_FRUState_NoticeInfo *)pData;
+    if(NULL == pRecvMsg) 
+    {
+        syslog(LOG_ERR, "%s: Fail to handle FRU Change Notice, cause of NULL RecvMsg\n", __FUNCTION__);
+        return ERROR_NULL_POINTER;
+    }
+
+    if((pRecvMsg->ucSiteNum >= MAX_FW_NUM) || (pRecvMsg->ucFRUID >= MAX_FRU_NUM)) 
+    {
+        syslog(LOG_ERR, "%s: Fail to handle FRU Change Notice, cause of invalid LOC(%d,%d)\n", __FUNCTION__, pRecvMsg->ucSiteNum,pRecvMsg->ucFRUID);
+        return ERROR_INVALID_INPUT;
+    }
+
+    if(pRecvMsg->ucSiteType == BSP_SITE_TYPE_BLADE) 
+]]>
+            </text>
+        </set>
+        <set lineCount="13">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="484" endLineNumber="498"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="701" endLineNumber="715"/>
+            <text>
+<![CDATA[	if(fp_tmcconfig == NULL){
+		syslog(LOG_ERR, "create file failed.\n");
+		fclose(fp_tmcconfig2);
+		close(fd);
+		free(malloc_stringbuff);
+		un_lock(fd,0,SEEK_SET,0);
+		return ERROR_OPENIPMI_OPENFILE;
+	}
+	
+	fputs(malloc_stringbuff,fp_tmcconfig);
+	fclose(fp_tmcconfig);
+	fclose(fp_tmcconfig2);
+	close(fd);
+	free(malloc_stringbuff);
+	un_lock(fd,0,SEEK_SET,0);
+]]>
+            </text>
+        </set>
+        <set lineCount="13">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/TMCSelfManager/source/restful_tmchnd.c" startLineNumber="2000" endLineNumber="2015"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/Restful_ModuleHnd.c" startLineNumber="4482" endLineNumber="4497"/>
+            <text>
+<![CDATA[	char *value_keys[] = {"\"Variable0\":","\"Variable1\":","\"Variable2\":","\"Variable3\":",
+				"\"Variable4\":","\"Variable5\":","\"Variable6\":"
+	};
+	if(NULL != strstr(pIn,"BSP_DbgFunction_AddAll")){//�״ν��������лᷢ��'BSP_DbgFunction_AddAll'����������ִ�г�ʼ��
+		BSP_DbgFunction_AddAll();
+		return BSP_OK;
+	}
+	for(index = 0;index < SIZE_ARRAY(keys);index++){
+		if(NULL != strstr(pIn,keys[index]))
+			break;
+	}
+	if(index == SIZE_ARRAY(keys))
+		return RPC_ERROR_RESOURCE_ABSENT;
+	fp_dbg=fopen(PRINTF_RECODE_PATH,"w");
+	switch(index){
+		case 0:
+]]>
+            </text>
+        </set>
+        <set lineCount="13">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="382" endLineNumber="403"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="517" endLineNumber="538"/>
+            <text>
+<![CDATA[    param.is_null = &is_null;
+
+    if(mysql_stmt_bind_result(db_stmt, &param) != 0) {
+        syslog(LOG_PERROR,"%s : Could not bind parameters for SELECT\n", __FUNCTION__);
+        return ERROR_DB_BOUNDPARA;
+    }
+
+    if(mysql_stmt_execute(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not execute statement\n", __FUNCTION__);
+        return ERROR_DB_EXE;
+    }
+
+    /* ��ȡ����� */
+    if(mysql_stmt_store_result(db_stmt) != 0) {
+        syslog(LOG_PERROR,"%s : Could not buffer result set\n", __FUNCTION__);
+        return ERROR_DB_FETCH_RESULT;
+    }
+
+    if(mysql_stmt_fetch(db_stmt) != 0)
+    {
+        mysql_stmt_free_result(db_stmt);
+        return ERROR_DB_RESULT_EMPTY;
+]]>
+            </text>
+        </set>
+        <set lineCount="13">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Rabbitmq/source/rabbitMqLib.c" startLineNumber="548" endLineNumber="568"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Rabbitmq/source/rabbitMqLib.c" startLineNumber="652" endLineNumber="672"/>
+            <text>
+<![CDATA[	result = BSP_GetSendConnectInfoOfSelfJID(&connection, &channel, &psync_queue,senderNo);
+	if (NULL == connection || BSP_OK != result)
+	{
+		syslog(LOG_PERROR, "RabbitMq init failed, %d!", result);
+		return (result == BSP_OK) ? ERROR_AMQP_INIT : result;		
+	}
+
+	/* RabbitMqͨ�����д������ݰ��������ʽ��װ:���ﲻ����ͬ�����첽���ǹ㲥��Ϣ
+	*  
+	*/	
+	amqpSend = amqp_bytes_malloc(amqpSendLen);
+	if (NULL == amqpSend.bytes)
+	{
+		syslog(LOG_PERROR, "Malloc failed!");
+		return ERROR_LACK_MEMORY;
+	}
+	memset(amqpSend.bytes, 0, amqpSendLen);
+	memset(&tHeader, 0, sizeof(T_AMQP_MSG_HEADER));
+	tHeader.msgId = msgId;
+	tHeader.msgLen = msgLen;
+	tHeader.senderNo = senderNo;
+]]>
+            </text>
+        </set>
+        <set lineCount="14">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="363" endLineNumber="386"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="380" endLineNumber="403"/>
+            <text>
+<![CDATA[	json2bladeAction(pos, &pBlade->actions);
+
+	return;
+}
+
+void json2patchBladeBoot(CHAR *json_patchBladeBoot, patchBladeBoot *ppatchBladeBoot)
+{
+	if (json_patchBladeBoot == NULL) return;
+
+	GetJsonString(json_patchBladeBoot, "\"BootSourceOverrideEnabled\":", ppatchBladeBoot->bootSourceOverrideEnabled, sizeof(ppatchBladeBoot->bootSourceOverrideEnabled));
+	GetJsonString(json_patchBladeBoot, "\"BootSourceOverrideTarget\":", ppatchBladeBoot->bootSourceOverrideTarget, sizeof(ppatchBladeBoot->bootSourceOverrideTarget));
+
+	return;
+}
+
+void json2processorIdStr(CHAR *json_processorIdStr, processorIdStr *pprocessorIdStr)
+{
+	if (json_processorIdStr == NULL) return;
+
+	GetJsonString(json_processorIdStr, "\"VendorId\":", pprocessorIdStr->vendorId, sizeof(pprocessorIdStr->vendorId));
+	pprocessorIdStr->numericId = GetJsonNumber(json_processorIdStr, "\"NumericId\":");
+	pprocessorIdStr->family = GetJsonNumber(json_processorIdStr, "\"Family\":");
+	pprocessorIdStr->model = GetJsonNumber(json_processorIdStr, "\"Model\":");
+	pprocessorIdStr->step = GetJsonNumber(json_processorIdStr, "\"Step\":");
+]]>
+            </text>
+        </set>
+        <set lineCount="14">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="627" endLineNumber="642"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="548" endLineNumber="563"/>
+            <text>
+<![CDATA[	 if (!xdr_opaque (xdrs, objp->bootSourceOverrideEnabled, HOST_BOOT_SOURCE_OVERRIDE))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->bootSourceOverrideTarget, HOST_BOOT_OVERRIDE_TARGET))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->supportedBootNum))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->overrideSupported, HOST_BOOT_OVERRIDE_SUPPORT,
+		sizeof (_bootOverride), (xdrproc_t) xdr__bootOverride))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->uefiTargetBootSourceOverride, GENERAL_STR_LEN))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr__actionStr (XDR *xdrs, _actionStr *objp)
+]]>
+            </text>
+        </set>
+        <set lineCount="14">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="450" endLineNumber="465"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="273" endLineNumber="288"/>
+            <text>
+<![CDATA[			return result;
+		}
+	}else{
+		startadd = strstr(src,star_s);
+		endadd = strstr(src,end_s);
+		if(startadd == NULL||endadd == NULL){
+			return NULL;
+		}else{
+			WORD32 length;
+			startadd += strlen(star_s);
+			length = endadd - startadd;
+			if(length > n){
+				length = n;
+			}
+			memcpy(result,startadd,length);
+			return result;
+]]>
+            </text>
+        </set>
+        <set lineCount="14">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="81" endLineNumber="104"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="86" endLineNumber="109"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2fruLocation(CHAR *json_fruLocation, fruLocation *pfruLocation)
+{
+	if (json_fruLocation == NULL) return;
+
+	pfruLocation->pod = GetJsonNumber(json_fruLocation, "\"Pod\":");
+	pfruLocation->rack = GetJsonNumber(json_fruLocation, "\"Rack\":");
+	pfruLocation->drawer = GetJsonNumber(json_fruLocation, "\"Drawer\":");
+	pfruLocation->siteType = GetJsonNumber(json_fruLocation, "\"SiteType\":");
+	pfruLocation->siteNumber = GetJsonNumber(json_fruLocation, "\"SiteNumber\":");
+
+	return;
+}
+
+void json2RSACollection(CHAR *json_RSACollection, RSACollection *pRSACollection)
+{
+	if (json_RSACollection == NULL) return;
+
+	GetJsonString(json_RSACollection, "\"Name\":", pRSACollection->name, sizeof(pRSACollection->name));
+	GetJsonString(json_RSACollection, "\"Modified\":", pRSACollection->modified, sizeof(pRSACollection->modified));
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="14">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/Restful_ModuleHnd.c" startLineNumber="4507" endLineNumber="4527"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/PemManager/source/restful_pemHnd.c" startLineNumber="363" endLineNumber="384"/>
+            <text>
+<![CDATA[	return BSP_OK;
+}
+
+WORD32 Restful_Dbghnd(BYTE *pData,
+                                       WORD32 msgLen,
+                                       BYTE *pAckData,
+                                       WORD32 *pAckLen)
+{
+	WORD32 dwResult = BSP_OK;
+	DbgMessg *pIn = NULL;
+	PostDbgMessgOut *pOut = NULL;
+
+	*pAckLen = sizeof(PostDbgMessgOut);
+	
+	//syslog(LOG_DEBUG, "Enter %s\n", __FUNCTION__);
+	if((NULL == pAckData) || (NULL == pData)) {
+		syslog(LOG_ERR, "%s: Fail to Dbg, cause of NULL RecvMsg\n", __FUNCTION__);
+		return ERROR_INVALID_INPUT;
+	}
+
+	pIn = (DbgMessg *)pData;
+	pOut = (PostDbgMessgOut *)pAckData;
+]]>
+            </text>
+        </set>
+        <set lineCount="14">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="432" endLineNumber="450"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="438" endLineNumber="456"/>
+            <text>
+<![CDATA[	json2bladeLocation(pos, &pProcessor->location);
+
+	return;
+}
+
+void json2Memory(CHAR *json_Memory, Memory *pMemory)
+{
+	if (json_Memory == NULL) return;
+
+	GetJsonString(json_Memory, "\"Id\":", pMemory->id, sizeof(pMemory->id));
+	GetJsonString(json_Memory, "\"Name\":", pMemory->name, sizeof(pMemory->name));
+	GetJsonString(json_Memory, "\"Modified\":", pMemory->modified, sizeof(pMemory->modified));
+	GetJsonString(json_Memory, "\"Manufacturer\":", pMemory->manufacturer, sizeof(pMemory->manufacturer));
+	GetJsonString(json_Memory, "\"Socket\":", pMemory->socket, sizeof(pMemory->socket));
+	GetJsonString(json_Memory, "\"Bank\":", pMemory->bank, sizeof(pMemory->bank));
+	GetJsonString(json_Memory, "\"Type\":", pMemory->type, sizeof(pMemory->type));
+	GetJsonString(json_Memory, "\"SizeGB\":", pMemory->sizeGB, sizeof(pMemory->sizeGB));
+	GetJsonString(json_Memory, "\"SpeedMHz\":", pMemory->speedMHz, sizeof(pMemory->speedMHz));
+	GetJsonString(json_Memory, "\"VoltageVolt\":", pMemory->voltageVolt, sizeof(pMemory->voltageVolt));
+]]>
+            </text>
+        </set>
+        <set lineCount="14">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="1029" endLineNumber="1047"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="878" endLineNumber="896"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="799" endLineNumber="817"/>
+            <text>
+<![CDATA[        syslog(LOG_PERROR,"%s : Unexpected column count from SELECT\n", __FUNCTION__);
+        return ERROR_DB_INVALIDCOUNT;
+    }
+
+    memset((void *)&param, 0, sizeof(param));
+
+    param[0].buffer_type = MYSQL_TYPE_STRING;
+    param[0].buffer = (void *)&module_id;
+    param[0].buffer_length = sizeof(module_id);
+    param[0].length = &module_id_len;
+    param[0].is_null = &is_null[0];
+    
+    param[1].buffer_type = MYSQL_TYPE_STRING;
+    param[1].buffer = (void *)&blade_id;
+    param[1].buffer_length = sizeof(blade_id);
+    param[1].length = &blade_id_len;
+    param[1].is_null = &is_null[1];
+    
+    param[2].buffer_type = MYSQL_TYPE_STRING;
+]]>
+            </text>
+        </set>
+        <set lineCount="14">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="668" endLineNumber="684"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="451" endLineNumber="467"/>
+            <text>
+<![CDATA[	if(fp_tmcconfig2 == NULL){
+		syslog(LOG_ERR, "create file failed.\n");
+		close(fd);
+		return ERROR_OPENIPMI_OPENFILE;
+		}
+	
+	fseek(fp_tmcconfig2,0,SEEK_END); /* ��λ���ļ�ĩβ */
+	file_lenth = ftell(fp_tmcconfig2)+strlen(str_add);
+	fseek(fp_tmcconfig2,0,SEEK_SET); /* ��λ���ļ���ͷ */
+	malloc_stringbuff=(char *)malloc(file_lenth+2); /* �����ļ���С��̬�����ڴ�ռ� */
+	if(NULL == malloc_stringbuff){
+		fclose(fp_tmcconfig2);
+		close(fd);
+		un_lock(fd,0,SEEK_SET,0);
+		return ERROR_LACK_MEMORY;
+	}
+	memset(malloc_stringbuff, 0, file_lenth+2);
+]]>
+            </text>
+        </set>
+        <set lineCount="15">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/BoardCtrl/source/jgq.c" startLineNumber="3" endLineNumber="18"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/FanCtrl/source/FanCtrl_msg.c" startLineNumber="76" endLineNumber="92"/>
+            <text>
+<![CDATA[LOCAL T_LinearDataFormatPara s_aucFanLevelToPercent[14] = 
+{     
+     /* {x,y,n} */
+     {0},  /* ��Ч */
+     {26,26,0},     /* 26%  level_1  */	 
+     {28,28,0},     /* 28%  level_2  */	 
+     {31,31,0},     /* 31%  level_3  */	 
+     {34,34,0},     /* 34%  level_4  */	 
+     {38,38,0},     /* 38%  level_5  */	 
+     {43,43,0},     /* 43%  level_6  */	 
+     {49,49,0},     /* 49%  level_7  */	 
+     {56,56,0},     /* 56%  level_8  */	 
+     {65,65,0},     /* 65%  level_9  */	 
+     {73,73,0},     /* 73%  level_10  */	 
+     {81,81,0},     /* 81%  level_11  */	 
+     {90,90,0},     /* 90%  level_12  */	 
+     {100,100,0}    /* 100%  level_13  */	 
+]]>
+            </text>
+        </set>
+        <set lineCount="15">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="640" endLineNumber="656"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="735" endLineNumber="751"/>
+            <text>
+<![CDATA[	 if (!xdr_u_int (xdrs, &objp->id))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->modified, TIME_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->interface, INTERFACE_LEN))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->driveCount))
+		 return FALSE;
+	 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_StorageControllerInfo (XDR *xdrs, StorageControllerInfo *objp)
+]]>
+            </text>
+        </set>
+        <set lineCount="15">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/bin/mongooseCode/examples/post.c" startLineNumber="38" endLineNumber="60"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/bin/mongooseCode/examples/upload.c" startLineNumber="107" endLineNumber="129"/>
+            <text>
+<![CDATA[    } else {
+      // Show HTML form.
+      mg_printf(conn, "HTTP/1.0 200 OK\r\n"
+                "Content-Length: %d\r\n"
+                "Content-Type: text/html\r\n\r\n%s",
+                (int) strlen(html_form), html_form);
+    }
+    // Mark as processed
+    return "";
+  } else {
+    return NULL;
+  }
+}
+
+int main(void) {
+  struct mg_context *ctx;
+  const char *options[] = {"listening_ports", "8080", NULL};
+
+  ctx = mg_start(&callback, NULL, options);
+  getchar();  // Wait until user hits "enter"
+  mg_stop(ctx);
+
+  return 0;
+]]>
+            </text>
+        </set>
+        <set lineCount="15">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="407" endLineNumber="422"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="624" endLineNumber="639"/>
+            <text>
+<![CDATA[	WORD32 setsuccess = 0;
+	FILE *fp_tmcconfig = NULL;
+	FILE *fp_tmcconfig2 = NULL;
+	CHAR *pStr = NULL;
+	CHAR *malloc_stringbuff = NULL;
+	int fd;
+	int file_lenth = 0;
+#ifdef TDD_CPPUTEST
+#else
+	WORD32 dwResult = 0;
+	WORD32 status = 0;
+	dwResult = GetTMCStatus(&status);
+	if(dwResult == BSP_OK && status == 0){
+		return BSP_OK;
+	}
+#endif
+]]>
+            </text>
+        </set>
+        <set lineCount="15">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct_special.c" startLineNumber="34" endLineNumber="59"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="723" endLineNumber="742"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/OpenIPMIManager/source/OpenIPMI_ThreadAmqp.c" startLineNumber="739" endLineNumber="758"/>
+            <text>
+<![CDATA[	CHAR *s, *e;
+
+	assert(JsonKey[0] == '"');
+	assert(JsonKey[strlen(JsonKey)-2] == '"');
+	assert(JsonKey[strlen(JsonKey)-1] == ':');
+
+	s = strstr(JsonStr, JsonKey);
+	if (s ==NULL){
+		return NULL;
+	}
+	s += strlen(JsonKey);
+	
+	if (s[0] == '"'){
+		s++;
+		e = strchr(s, '"');
+		if (e ==NULL){
+			printf("invalid json string, %s\n", JsonKey);
+			return NULL;
+		}
+		*retlen = e - s;
+]]>
+            </text>
+        </set>
+        <set lineCount="15">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/Restful_ModuleHnd.c" startLineNumber="3047" endLineNumber="3064"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/Restful_ModuleHnd.c" startLineNumber="3099" endLineNumber="3116"/>
+            <text>
+<![CDATA[                                  WORD32 msgLen,
+                                  BYTE *pAckData,
+                                  WORD32 *pAckLen,
+                                  WORD32 dwFWType)
+{
+    WORD32 dwResult = BSP_OK;
+	GetIn *tIn = NULL;
+    GetRSACollectionOut *tOutCollection = NULL;
+	*pAckLen = sizeof(GetRSACollectionOut);
+    tIn = (GetIn *)pData;
+    tOutCollection = (GetRSACollectionOut *)pAckData;
+
+    if((NULL == tIn) || (NULL == tOutCollection)) {
+        syslog(LOG_ERR, "%s: Fail to Get %d Collections, cause of NULL RecvMsg\n", __FUNCTION__, dwFWType);
+        return ERROR_NULL_POINTER;
+    }
+	memset(tOutCollection,0,sizeof(GetRSACollectionOut));
+    switch(dwFWType) {
+]]>
+            </text>
+        </set>
+        <set lineCount="16">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="802" endLineNumber="827"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="878" endLineNumber="903"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2powerZone(CHAR *json_powerZone, powerZone *ppowerZone)
+{
+	if (json_powerZone == NULL) return;
+
+	ppowerZone->id = GetJsonNumber(json_powerZone, "\"Id\":");
+	GetJsonString(json_powerZone, "\"Name\":", ppowerZone->name, sizeof(ppowerZone->name));
+	GetJsonString(json_powerZone, "\"UpdatedDate\":", ppowerZone->updatedDate, sizeof(ppowerZone->updatedDate));
+	ppowerZone->presentPowerInput = GetJsonNumber(json_powerZone, "\"PresentPowerInput\":");
+	ppowerZone->presentPowerOutput = GetJsonNumber(json_powerZone, "\"PresentPowerOutput\":");
+	ppowerZone->maxRatedPowerCapacity = GetJsonNumber(json_powerZone, "\"MaxRatedPowerCapacity\":");
+	ppowerZone->maxPSUsSupported = GetJsonNumber(json_powerZone, "\"MaxPSUsSupported\":");
+	GetJsonString(json_powerZone, "\"Presence\":", ppowerZone->presence, sizeof(ppowerZone->presence));
+	ppowerZone->numberOfPSUsPresent = GetJsonNumber(json_powerZone, "\"NumberOfPSUsPresent\":");
+
+	return;
+}
+
+void json2powerSupplyCollection(CHAR *json_powerSupplyCollection, powerSupplyCollection *ppowerSupplyCollection)
+{
+	if (json_powerSupplyCollection == NULL) return;
+
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="16">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="127" endLineNumber="142"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="91" endLineNumber="106"/>
+            <text>
+<![CDATA[	if (xdrs->x_op == XDR_ENCODE) {
+		 if (!xdr_opaque (xdrs, objp->vendorId, VENDOR_ID_LEN))
+			 return FALSE;
+		buf = XDR_INLINE (xdrs, 5 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->numericId))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->family))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->model))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->step))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->microcodeInfo))
+				 return FALSE;
+		} else {
+]]>
+            </text>
+        </set>
+        <set lineCount="17">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/Restful_ModuleHnd.c" startLineNumber="4510" endLineNumber="4533"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/TMCSelfManager/source/restful_tmchnd.c" startLineNumber="2049" endLineNumber="2072"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/FanCtrl/source/FanCtrl_msg.c" startLineNumber="3637" endLineNumber="3659"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/OpenIPMIManager/source/OpenIPMI_ThreadAmqp.c" startLineNumber="949" endLineNumber="972"/>
+            <text>
+<![CDATA[                                       WORD32 msgLen,
+                                       BYTE *pAckData,
+                                       WORD32 *pAckLen)
+{
+	WORD32 dwResult = BSP_OK;
+	DbgMessg *pIn = NULL;
+	PostDbgMessgOut *pOut = NULL;
+
+	*pAckLen = sizeof(PostDbgMessgOut);
+	
+	//syslog(LOG_DEBUG, "Enter %s\n", __FUNCTION__);
+	if((NULL == pAckData) || (NULL == pData)) {
+		syslog(LOG_ERR, "%s: Fail to Dbg, cause of NULL RecvMsg\n", __FUNCTION__);
+		return ERROR_INVALID_INPUT;
+	}
+
+	pIn = (DbgMessg *)pData;
+	pOut = (PostDbgMessgOut *)pAckData;
+	dwResult = PraseFunction(pIn->date);
+	if(BSP_OK != dwResult){
+		pOut->result = RPC_ERROR_RESOURCE_ABSENT;
+	}
+	pOut->result = BSP_OK;
+	return BSP_OK;
+]]>
+            </text>
+        </set>
+        <set lineCount="17">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="13" endLineNumber="43"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="22" endLineNumber="52"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2DrawerLocation(CHAR *json_DrawerLocation, DrawerLocation *pDrawerLocation)
+{
+	if (json_DrawerLocation == NULL) return;
+
+	pDrawerLocation->pod = GetJsonNumber(json_DrawerLocation, "\"Pod\":");
+	pDrawerLocation->rack = GetJsonNumber(json_DrawerLocation, "\"Rack\":");
+	pDrawerLocation->drawer = GetJsonNumber(json_DrawerLocation, "\"Drawer\":");
+
+	return;
+}
+
+void json2ModuleLocation(CHAR *json_ModuleLocation, ModuleLocation *pModuleLocation)
+{
+	if (json_ModuleLocation == NULL) return;
+
+	pModuleLocation->pod = GetJsonNumber(json_ModuleLocation, "\"Pod\":");
+	pModuleLocation->rack = GetJsonNumber(json_ModuleLocation, "\"Rack\":");
+	pModuleLocation->drawer = GetJsonNumber(json_ModuleLocation, "\"Drawer\":");
+	pModuleLocation->module = GetJsonNumber(json_ModuleLocation, "\"Module\":");
+
+	return;
+}
+
+void json2RSAManagedBy(CHAR *json_RSAManagedBy, RSAManagedBy *pRSAManagedBy)
+{
+	if (json_RSAManagedBy == NULL) return;
+
+	pRSAManagedBy->count = GetJsonNumber(json_RSAManagedBy, "\"Count\":");
+]]>
+            </text>
+        </set>
+        <set lineCount="17">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="46" endLineNumber="72"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="55" endLineNumber="81"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2bladeLocation(CHAR *json_bladeLocation, bladeLocation *pbladeLocation)
+{
+	if (json_bladeLocation == NULL) return;
+
+	pbladeLocation->pod = GetJsonNumber(json_bladeLocation, "\"Pod\":");
+	pbladeLocation->rack = GetJsonNumber(json_bladeLocation, "\"Rack\":");
+	pbladeLocation->drawer = GetJsonNumber(json_bladeLocation, "\"Drawer\":");
+	pbladeLocation->module = GetJsonNumber(json_bladeLocation, "\"Module\":");
+	pbladeLocation->blade = GetJsonNumber(json_bladeLocation, "\"Blade\":");
+
+	return;
+}
+
+void json2switchLocation(CHAR *json_switchLocation, switchLocation *pswitchLocation)
+{
+	if (json_switchLocation == NULL) return;
+
+	pswitchLocation->pod = GetJsonNumber(json_switchLocation, "\"Pod\":");
+	pswitchLocation->rack = GetJsonNumber(json_switchLocation, "\"Rack\":");
+	pswitchLocation->drawer = GetJsonNumber(json_switchLocation, "\"Drawer\":");
+	pswitchLocation->module = GetJsonNumber(json_switchLocation, "\"Module\":");
+	pswitchLocation->Switch = GetJsonNumber(json_switchLocation, "\"Switch\":");
+
+	return;
+]]>
+            </text>
+        </set>
+        <set lineCount="17">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="1003" endLineNumber="1029"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="909" endLineNumber="935"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2thermalZone(CHAR *json_thermalZone, thermalZone *pthermalZone)
+{
+	if (json_thermalZone == NULL) return;
+
+	pthermalZone->id = GetJsonNumber(json_thermalZone, "\"Id\":");
+	GetJsonString(json_thermalZone, "\"Name\":", pthermalZone->name, sizeof(pthermalZone->name));
+	GetJsonString(json_thermalZone, "\"UpdatedDate\":", pthermalZone->updatedDate, sizeof(pthermalZone->updatedDate));
+	GetJsonString(json_thermalZone, "\"Presence\":", pthermalZone->presence, sizeof(pthermalZone->presence));
+	GetJsonString(json_thermalZone, "\"Policy\":", pthermalZone->policy, sizeof(pthermalZone->policy));
+	pthermalZone->presentTemperature = GetJsonNumber(json_thermalZone, "\"PresentTemperature\":");
+	pthermalZone->maxFansSupported = GetJsonNumber(json_thermalZone, "\"MaxFansSupported\":");
+	pthermalZone->numberOfFansPresent = GetJsonNumber(json_thermalZone, "\"NumberOfFansPresent\":");
+	pthermalZone->outletTemperature = GetJsonNumber(json_thermalZone, "\"OutletTemperature\":");
+	pthermalZone->volumetricAirflow = GetJsonNumber(json_thermalZone, "\"VolumetricAirflow\":");
+
+	return;
+}
+
+void json2fanCollection(CHAR *json_fanCollection, fanCollection *pfanCollection)
+{
+	if (json_fanCollection == NULL) return;
+
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="18">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="1051" endLineNumber="1073"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="1135" endLineNumber="1157"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2FruDetaiInfo(CHAR *json_FruDetaiInfo, FruDetaiInfo *pFruDetaiInfo)
+{
+	if (json_FruDetaiInfo == NULL) return;
+
+	GetJsonString(json_FruDetaiInfo, "\"Id\":", pFruDetaiInfo->id, sizeof(pFruDetaiInfo->id));
+	GetJsonString(json_FruDetaiInfo, "\"Name\":", pFruDetaiInfo->name, sizeof(pFruDetaiInfo->name));
+	GetJsonString(json_FruDetaiInfo, "\"Modified\":", pFruDetaiInfo->modified, sizeof(pFruDetaiInfo->modified));
+	GetJsonString(json_FruDetaiInfo, "\"FruType\":", pFruDetaiInfo->fruType, sizeof(pFruDetaiInfo->fruType));
+	GetJsonString(json_FruDetaiInfo, "\"BoardDescription\":", pFruDetaiInfo->boardDescription, sizeof(pFruDetaiInfo->boardDescription));
+	GetJsonString(json_FruDetaiInfo, "\"Manufacturer\":", pFruDetaiInfo->manufacturer, sizeof(pFruDetaiInfo->manufacturer));
+	GetJsonString(json_FruDetaiInfo, "\"SerialNumber\":", pFruDetaiInfo->serialNumber, sizeof(pFruDetaiInfo->serialNumber));
+	GetJsonString(json_FruDetaiInfo, "\"ManufactureDate\":", pFruDetaiInfo->manufactureDate, sizeof(pFruDetaiInfo->manufactureDate));
+	GetJsonString(json_FruDetaiInfo, "\"ProductName\":", pFruDetaiInfo->productName, sizeof(pFruDetaiInfo->productName));
+	GetJsonString(json_FruDetaiInfo, "\"ProductPartNumber\":", pFruDetaiInfo->productPartNumber, sizeof(pFruDetaiInfo->productPartNumber));
+	GetJsonString(json_FruDetaiInfo, "\"ProductSerialNumber\":", pFruDetaiInfo->productSerialNumber, sizeof(pFruDetaiInfo->productSerialNumber));
+	GetJsonString(json_FruDetaiInfo, "\"AssetTag\":", pFruDetaiInfo->assetTag, sizeof(pFruDetaiInfo->assetTag));
+	GetJsonString(json_FruDetaiInfo, "\"ChassisPartNumber\":", pFruDetaiInfo->chassisPartNumber, sizeof(pFruDetaiInfo->chassisPartNumber));
+	GetJsonString(json_FruDetaiInfo, "\"ChassisSerialNumber\":", pFruDetaiInfo->chassisSerialNumber, sizeof(pFruDetaiInfo->chassisSerialNumber));
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="18">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/ModuleRPC_Common.c" startLineNumber="937" endLineNumber="961"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/ModuleRPC_Common.c" startLineNumber="898" endLineNumber="922"/>
+            <text>
+<![CDATA[    WORD32 dwSwitchIndex = 0;
+    WORD32 dwPortIndex = 0;
+    WORD64 qwPortId = 0;
+    RSACollection tSwitchcollection;
+	RSACollection tPortCollection;
+	GetSwitchPortOut tSwitchPort;
+
+    memset(ptAlarmPorts, 0, sizeof(T_AlarmPorts));
+	memset(&tSwitchcollection, 0, sizeof(tSwitchcollection));
+	memset(&tPortCollection, 0, sizeof(tPortCollection));
+	memset(&tSwitchPort, 0, sizeof(tSwitchPort));
+	
+    GetSwitchCollection(dwSiteNum, &tSwitchcollection);
+    if(tSwitchcollection.links.count == 0)
+    {
+        return BSP_OK;
+    }
+
+    for(dwSwitchIndex = 0; dwSwitchIndex < tSwitchcollection.links.count; dwSwitchIndex++)
+    { 
+        GetPortCollection(tSwitchcollection.links.linkId[dwSwitchIndex], &tPortCollection);
+		for(dwPortIndex = 0; dwPortIndex < tPortCollection.links.count; dwPortIndex++)
+		{
+        	qwPortId = tPortCollection.links.linkId[dwPortIndex];
+            GetPortInfo(tSwitchcollection.links.linkId[dwSwitchIndex], qwPortId, &tSwitchPort);
+]]>
+            </text>
+        </set>
+        <set lineCount="18">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="755" endLineNumber="778"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="658" endLineNumber="681"/>
+            <text>
+<![CDATA[	 if (!xdr_u_int (xdrs, &objp->completionCode))
+		 return FALSE;
+	 if (!xdr__StorageControllerInfo (xdrs, &objp->storageControllerInfo))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr__CollectionInfo (XDR *xdrs, _CollectionInfo *objp)
+{
+	register int32_t *buf;
+
+	int i;
+
+	if (xdrs->x_op == XDR_ENCODE) {
+		buf = XDR_INLINE (xdrs, (1 + ( COLLECTION_ITEM_MAX_COUNT )) * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->current_ids_count))
+				 return FALSE;
+			 if (!xdr_vector (xdrs, (char *)objp->ids, COLLECTION_ITEM_MAX_COUNT,
+				sizeof (u_int), (xdrproc_t) xdr_u_int))
+				 return FALSE;
+
+		} else {
+]]>
+            </text>
+        </set>
+        <set lineCount="19">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="1038" endLineNumber="1066"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="940" endLineNumber="968"/>
+            <text>
+<![CDATA[	return;
+}
+
+void json2thresholdValue(CHAR *json_thresholdValue, thresholdValue *pthresholdValue)
+{
+	if (json_thresholdValue == NULL) return;
+
+	pthresholdValue->lowerNonCritical = GetJsonNumber(json_thresholdValue, "\"LowerNonCritical\":");
+	pthresholdValue->upperNonCritical = GetJsonNumber(json_thresholdValue, "\"UpperNonCritical\":");
+	pthresholdValue->lowerCritical = GetJsonNumber(json_thresholdValue, "\"LowerCritical\":");
+	pthresholdValue->upperCritical = GetJsonNumber(json_thresholdValue, "\"UpperCritical\":");
+
+	return;
+}
+
+void json2fanAttri(CHAR *json_fanAttri, fanAttri *pfanAttri)
+{
+	if (json_fanAttri == NULL) return;
+
+	pfanAttri->id = GetJsonNumber(json_fanAttri, "\"Id\":");
+	GetJsonString(json_fanAttri, "\"Name\":", pfanAttri->name, sizeof(pfanAttri->name));
+	GetJsonString(json_fanAttri, "\"UpdatedDate\":", pfanAttri->updatedDate, sizeof(pfanAttri->updatedDate));
+	pfanAttri->enabledState = GetJsonNumber(json_fanAttri, "\"EnabledState\":");
+	pfanAttri->healthCode = GetJsonNumber(json_fanAttri, "\"HealthCode\":");
+	pfanAttri->desiredSpeed = GetJsonNumber(json_fanAttri, "\"DesiredSpeed\":");
+	pfanAttri->presentTachMeterReading = GetJsonNumber(json_fanAttri, "\"PresentTachMeterReading\":");
+	pfanAttri->meterState = GetJsonNumber(json_fanAttri, "\"MeterState\":");
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="20">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/register_ip.c" startLineNumber="108" endLineNumber="138"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/register_ip.c" startLineNumber="44" endLineNumber="74"/>
+            <text>
+<![CDATA[    if (fd == -1)
+    {
+        syslog(LOG_ERR, "%s : open file failed.\n", __FUNCTION__);
+        return ERROR_UPDATE_FILE_OPT;
+    }            
+
+    len = lseek( fd, 0, SEEK_END);
+    if( len == -1 )
+    {
+        close(fd);
+        syslog(LOG_ERR, "%s : lseek file failed.\n", __FUNCTION__);
+        return ERROR_UPDATE_FILE_OPT;
+    }    
+
+    buf = (CHAR *)malloc(len);
+    if(NULL == buf)
+    {
+        close(fd);
+        syslog(LOG_ERR, "%s : malloc failed.\n", __FUNCTION__);
+        return ERROR_LACK_MEMORY;
+    }
+    
+    lseek( fd, 0, SEEK_SET);
+    if(len != read(fd, buf, len))
+    {
+	 close(fd);
+	 free(buf);
+        syslog(LOG_ERR, "%s : Read file failed.\n", __FUNCTION__);
+        return ERROR_UPDATE_FILE_OPT;
+    }
+    close(fd);
+]]>
+            </text>
+        </set>
+        <set lineCount="20">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="870" endLineNumber="896"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/Mysql/source/MysqlLib.c" startLineNumber="791" endLineNumber="817"/>
+            <text>
+<![CDATA[            ptSystemInfo->systemId);
+    if(mysql_stmt_prepare(db_stmt, stmt_str, strlen(stmt_str)) != 0) {
+        syslog(LOG_PERROR,"%s : Could not prepare SELECT statement\n", __FUNCTION__);
+        print_mysql_error();
+        return ERROR_DB_INITSTMT;
+    }
+
+    if(mysql_stmt_field_count(db_stmt) != 3) {
+        syslog(LOG_PERROR,"%s : Unexpected column count from SELECT\n", __FUNCTION__);
+        return ERROR_DB_INVALIDCOUNT;
+    }
+
+    memset((void *)&param, 0, sizeof(param));
+
+    param[0].buffer_type = MYSQL_TYPE_STRING;
+    param[0].buffer = (void *)&module_id;
+    param[0].buffer_length = sizeof(module_id);
+    param[0].length = &module_id_len;
+    param[0].is_null = &is_null[0];
+    
+    param[1].buffer_type = MYSQL_TYPE_STRING;
+    param[1].buffer = (void *)&blade_id;
+    param[1].buffer_length = sizeof(blade_id);
+    param[1].length = &blade_id_len;
+    param[1].is_null = &is_null[1];
+    
+    param[2].buffer_type = MYSQL_TYPE_STRING;
+]]>
+            </text>
+        </set>
+        <set lineCount="21">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="3504" endLineNumber="3530"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/Mongoose/source/uri_match.c" startLineNumber="3554" endLineNumber="3580"/>
+            <text>
+<![CDATA[	dwResult = HttpRequestBody_Check(g_pBodyData,keys);
+	if(BSP_OK != dwResult) {
+		printf("Status:%d\r\n",STATUS_ERROR);
+		return NULL;
+	}
+	
+	dwResult =  GetBMCIpPatchInfoFromHttpRequest(g_pBodyData,&tPatchInfoIn.patchBMCIP);
+	if(BSP_OK != dwResult) {
+		printf("Status:%d\r\n",STATUS_ERROR);
+		return NULL;
+	}
+
+	dwResult = BSP_SendSynMsg(EV_PATCH_BMC_IP,
+				(BYTE*)&tPatchInfoIn,
+				msgLen,
+				(BYTE*)&tPatchBMCIPOut,
+				&ackLen,
+				MONGOOSE_TID_RABBITMQ,
+				MODULE_REST_TID_RABBITMQ,
+				6000);
+
+	if(BSP_OK == dwResult && BSP_OK == tPatchBMCIPOut.result) {
+		printf("Status:%d\r\n",STATUS_FINISHED);
+	} else {
+		printf("Status:%d\r\n",STATUS_ABSENT);
+	}
+    return NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="21">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="1163" endLineNumber="1194"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="1079" endLineNumber="1110"/>
+            <text>
+<![CDATA[	json2fruLocation(pos, &pFruDetaiInfo->location);
+
+	return;
+}
+
+void json2SensorThreshold(CHAR *json_SensorThreshold, SensorThreshold *pSensorThreshold)
+{
+	if (json_SensorThreshold == NULL) return;
+
+	GetJsonString(json_SensorThreshold, "\"UpperNonRecoverable\":", pSensorThreshold->upperNonRecoverable, sizeof(pSensorThreshold->upperNonRecoverable));
+	GetJsonString(json_SensorThreshold, "\"UpperCritical\":", pSensorThreshold->upperCritical, sizeof(pSensorThreshold->upperCritical));
+	GetJsonString(json_SensorThreshold, "\"UpperNonCritical\":", pSensorThreshold->upperNonCritical, sizeof(pSensorThreshold->upperNonCritical));
+	GetJsonString(json_SensorThreshold, "\"LowerNonCritical\":", pSensorThreshold->lowerNonCritical, sizeof(pSensorThreshold->lowerNonCritical));
+	GetJsonString(json_SensorThreshold, "\"LowerCritical\":", pSensorThreshold->lowerCritical, sizeof(pSensorThreshold->lowerCritical));
+	GetJsonString(json_SensorThreshold, "\"LowerNonRecoverable\":", pSensorThreshold->lowerNonRecoverable, sizeof(pSensorThreshold->lowerNonRecoverable));
+
+	return;
+}
+
+void json2Sensors(CHAR *json_Sensors, Sensors *pSensors)
+{
+	if (json_Sensors == NULL) return;
+
+	pSensors->fruId = GetJsonNumber(json_Sensors, "\"FruId\":");
+	GetJsonString(json_Sensors, "\"FruName\":", pSensors->fruName, sizeof(pSensors->fruName));
+	pSensors->sensorNumber = GetJsonNumber(json_Sensors, "\"SensorNumber\":");
+	GetJsonString(json_Sensors, "\"SensorName\":", pSensors->sensorName, sizeof(pSensors->sensorName));
+	GetJsonString(json_Sensors, "\"SensorType\":", pSensors->sensorType, sizeof(pSensors->sensorType));
+	GetJsonString(json_Sensors, "\"SensorUnit\":", pSensors->sensorUnit, sizeof(pSensors->sensorUnit));
+	GetJsonString(json_Sensors, "\"Current\":", pSensors->current, sizeof(pSensors->current));
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="21">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/TMCSelfManager/source/TMCSelfManage_Main.c" startLineNumber="111" endLineNumber="139"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/ModuleRPC_Main.c" startLineNumber="54" endLineNumber="82"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/OpenIPMIManager/source/OpenIPMI_main.c" startLineNumber="70" endLineNumber="102"/>
+            <text>
+<![CDATA[VOID Exception_sigsegv(VOID)
+{
+	FILE *file = NULL;
+	CHAR acBuf[1024];
+	CHAR acCmd[1024];
+
+	memset(&acBuf, 0, sizeof(acBuf));
+	memset(&acCmd, 0, sizeof(acCmd));
+	snprintf(acBuf, sizeof(acBuf), "/proc/%d/cmdline", getpid());
+	if (!(file = fopen(acBuf, "r"))) 
+	{
+		syslog(LOG_ERR, "Fail to handle SIGSEGV exception, %d\n", __LINE__);
+		return;
+	}
+
+	memset(&acBuf, 0, sizeof(acBuf));
+	if (!fgets(acBuf, sizeof(acBuf), file))
+	{
+		syslog(LOG_ERR, "Fail to handle SIGSEGV exception, %d\n", __LINE__);
+        fclose(file);
+		return;
+	}
+
+	if(acBuf[strlen(acBuf)-1] == '\n')
+	{
+		acBuf[strlen(acBuf)-1] = '\0';
+	}
+
+	snprintf(acCmd, sizeof(acCmd), "gdb %s %d -ex=bt > ./coredump.txt", acBuf, getpid());
+	system(acCmd);
+
+	fclose(file);
+	return;
+]]>
+            </text>
+        </set>
+        <set lineCount="24">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_clnt.c" startLineNumber="8" endLineNumber="31"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_server.c" startLineNumber="8" endLineNumber="31"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="7" endLineNumber="30"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_svc.c" startLineNumber="18" endLineNumber="41"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_client.c" startLineNumber="8" endLineNumber="31"/>
+            <text>
+<![CDATA[#define RPC_SERVER_ERROR_BASE (0)
+#define RPC_SERVER_SUCCESS (RPC_SERVER_ERROR_BASE - 0)
+#define RPC_SERVER_FAILED (RPC_SERVER_ERROR_BASE - 1)
+#define RPC_SERVER_NOTREADY (RPC_SERVER_ERROR_BASE - 2)
+#define RPC_CLIENT_TYPE_INVALID (RPC_SERVER_ERROR_BASE - 3)
+#define RPC_POWER_TYPE_UNAVALIABLE (RPC_SERVER_ERROR_BASE - 4)
+#define COLLECTION_ITEM_MAX_COUNT 128 /* ..... ....... */
+#define GENERAL_STR_LEN 32 /* .. ..... */
+#define NAME_LEN 32 /* .. ....... */
+#define TIME_LEN 32 /* .. ....... */
+#define STATE_LEN 64 /* .. ....... */
+#define HEALTH_LEN 32 /* .. ....... */
+#define HEALTH_ROLLUP_LEN 32 /* .... ....... */
+#define MANUFACTURE_LEN 64 /* .... ....... */
+#define MODEL_LEN 64 /* .. ....... */
+#define RPM_LEN 16 /* ..(../..) ....... */
+#define SYSTEM_TYPE_LEN 16 /* ....(../..) ....... */
+#define INTERFACE_LEN 16 /* ..(.............) ....... */
+#define TYPE_LEN 32 /* .. ....... */
+#define SERIAL_NUM_LEN 32 /* ... ....... */
+#define VENDOR_ID_LEN 16 /* ... ....... */
+#define SOCKET_LEN 16 /* .... ....... */
+#define MAX_LENGTH_SUPPORTED 16
+#define MAX_TYPE_SUPPORTED 16
+]]>
+            </text>
+        </set>
+        <set lineCount="25">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="465" endLineNumber="491"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="522" endLineNumber="548"/>
+            <text>
+<![CDATA[	 if (!xdr_u_int (xdrs, &objp->id))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->interface, INTERFACE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->type, TYPE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->manufacturer, MANUFACTURE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->model, MODEL_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->serialNumber, SERIAL_NUM_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->bootable, HOST_HDD_INFO_BOOTABLE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->RPM, RPM_LEN))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->capacityGB))
+		 return FALSE;
+	 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_DriveInfo (XDR *xdrs, DriveInfo *objp)
+]]>
+            </text>
+        </set>
+        <set lineCount="25">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/json2struct.c" startLineNumber="112" endLineNumber="157"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/json2struct.c" startLineNumber="107" endLineNumber="152"/>
+            <text>
+<![CDATA[	json2RSALinks(pos, &pRSACollection->links);
+
+	return;
+}
+
+void json2RSARmmCollection(CHAR *json_RSARmmCollection, RSARmmCollection *pRSARmmCollection)
+{
+	if (json_RSARmmCollection == NULL) return;
+
+	pRSARmmCollection->id = GetJsonNumber(json_RSARmmCollection, "\"Id\":");
+	GetJsonString(json_RSARmmCollection, "\"Name\":", pRSARmmCollection->name, sizeof(pRSARmmCollection->name));
+
+	return;
+}
+
+void json2versionInfo(CHAR *json_versionInfo, versionInfo *pversionInfo)
+{
+	if (json_versionInfo == NULL) return;
+
+	GetJsonString(json_versionInfo, "\"CurrentVersion\":", pversionInfo->currentVersion, sizeof(pversionInfo->currentVersion));
+	GetJsonString(json_versionInfo, "\"BackupVersion\":", pversionInfo->backupVersion, sizeof(pversionInfo->backupVersion));
+
+	return;
+}
+
+void json2ServiceRoot(CHAR *json_ServiceRoot, ServiceRoot *pServiceRoot)
+{
+	if (json_ServiceRoot == NULL) return;
+
+	GetJsonString(json_ServiceRoot, "\"Id\":", pServiceRoot->id, sizeof(pServiceRoot->id));
+	GetJsonString(json_ServiceRoot, "\"Name\":", pServiceRoot->name, sizeof(pServiceRoot->name));
+	GetJsonString(json_ServiceRoot, "\"Modified\":", pServiceRoot->modified, sizeof(pServiceRoot->modified));
+	GetJsonString(json_ServiceRoot, "\"Time\":", pServiceRoot->time, sizeof(pServiceRoot->time));
+	GetJsonString(json_ServiceRoot, "\"ServiceVersion\":", pServiceRoot->serviceVersion, sizeof(pServiceRoot->serviceVersion));
+	GetJsonString(json_ServiceRoot, "\"UUID\":", pServiceRoot->UUID, sizeof(pServiceRoot->UUID));
+
+	return;
+}
+
+void json2GetServiceRootOut(CHAR *json_GetServiceRootOut, GetServiceRootOut *pGetServiceRootOut)
+{
+	if (json_GetServiceRootOut == NULL) return;
+
+	pGetServiceRootOut->result = GetJsonNumber(json_GetServiceRootOut, "\"Result\":");
+
+	CHAR *pos = NULL;
+]]>
+            </text>
+        </set>
+        <set lineCount="31">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/FileOperate/source/fileoperate.c" startLineNumber="717" endLineNumber="763"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/OpenIPMIManager/source/OpenIPMI_ThreadAmqp.c" startLineNumber="734" endLineNumber="779"/>
+            <text>
+<![CDATA[    return BSP_OK;
+}
+
+CHAR* GetValueFromString(CHAR *JsonStr, CHAR *JsonKey, int *retlen)
+{
+	CHAR *s, *e;
+
+	assert(JsonKey[0] == '"');
+	assert(JsonKey[strlen(JsonKey)-2] == '"');
+	assert(JsonKey[strlen(JsonKey)-1] == ':');
+
+	s = strstr(JsonStr, JsonKey);
+	if (s ==NULL){
+		return NULL;
+	}
+	s += strlen(JsonKey);
+	
+	if (s[0] == '"'){
+		s++;
+		e = strchr(s, '"');
+		if (e ==NULL){
+			printf("invalid json string, %s\n", JsonKey);
+			return NULL;
+		}
+		*retlen = e - s;
+	}
+	return s;
+}
+
+void GetValue(CHAR *JsonStr, CHAR *JsonKey, CHAR *StructStrVar, WORD32 dwStrLen)
+{
+	CHAR *pos;
+	int retlen;
+
+	pos = GetValueFromString(JsonStr, JsonKey, &retlen);
+	if (pos == NULL){
+		return;
+	}
+	if (retlen >= dwStrLen-2){
+		strncpy(StructStrVar, pos, dwStrLen-1);
+		StructStrVar[dwStrLen-1] = 0;
+	}else{
+		strncpy(StructStrVar, pos, retlen);
+		StructStrVar[retlen] = 0;
+	}
+	return;
+]]>
+            </text>
+        </set>
+        <set lineCount="31">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="52" endLineNumber="89"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="86" endLineNumber="123"/>
+            <text>
+<![CDATA[		 if (!xdr_opaque (xdrs, objp->data, MAX_OUTPUT_LEN))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->versionid))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->cmdid))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->completioncode))
+				 return FALSE;
+
+		} else {
+		objp->versionid = IXDR_GET_U_LONG(buf);
+		objp->cmdid = IXDR_GET_U_LONG(buf);
+		objp->completioncode = IXDR_GET_U_LONG(buf);
+		}
+		 if (!xdr_opaque (xdrs, objp->data, MAX_OUTPUT_LEN))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_u_int (xdrs, &objp->versionid))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->cmdid))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->completioncode))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->data, MAX_OUTPUT_LEN))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr__CpuProcessorIdInfo (XDR *xdrs, _CpuProcessorIdInfo *objp)
+{
+	register int32_t *buf;
+]]>
+            </text>
+        </set>
+        <set lineCount="32">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="201" endLineNumber="233"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="159" endLineNumber="191"/>
+            <text>
+<![CDATA[	if (xdrs->x_op == XDR_ENCODE) {
+		 if (!xdr_u_int (xdrs, &objp->id))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->socket, SOCKET_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->manufacture, MANUFACTURE_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->model, MODEL_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->processorType, HOST_CPU_INFO_PROCESSOR_TYPE_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->processorArchitecture, HOST_CPU_INFO_ARCH_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->instructionSet, HOST_CPU_INFO_INSTUCT_SET_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->instructionSetExtensions, HOST_CPU_INFO_INSTUCT_SET_EXT_LEN))
+			 return FALSE;
+		buf = XDR_INLINE (xdrs, 5 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->maxSpeedMHz))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->totalCores))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->enabledCores))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->totalThreads))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->enabledThreads))
+				 return FALSE;
+
+		} else {
+]]>
+            </text>
+        </set>
+        <set lineCount="33">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="1056" endLineNumber="1094"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="937" endLineNumber="975"/>
+            <text>
+<![CDATA[		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_bool (xdrs, &objp->bstatus))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->returncode))
+				 return FALSE;
+
+		} else {
+		objp->bstatus = IXDR_GET_BOOL(buf);
+		objp->CurrentTypeSupported = IXDR_GET_U_LONG(buf);
+		objp->returncode = IXDR_GET_U_LONG(buf);
+		}
+		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_bool (xdrs, &objp->bstatus))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->returncode))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+		sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_GetCurrentVersion (XDR *xdrs, GetCurrentVersion *objp)
+]]>
+            </text>
+        </set>
+        <set lineCount="34">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="997" endLineNumber="1037"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="880" endLineNumber="920"/>
+            <text>
+<![CDATA[		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_bool (xdrs, &objp->bstatus))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->returncode))
+				 return FALSE;
+
+		} else {
+		objp->bstatus = IXDR_GET_BOOL(buf);
+		objp->CurrentTypeSupported = IXDR_GET_U_LONG(buf);
+		objp->returncode = IXDR_GET_U_LONG(buf);
+		}
+		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_bool (xdrs, &objp->bstatus))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->returncode))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+		sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_GetCommandShell (XDR *xdrs, GetCommandShell *objp)
+{
+	register int32_t *buf;
+]]>
+            </text>
+        </set>
+        <set lineCount="34">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="938" endLineNumber="978"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="823" endLineNumber="863"/>
+            <text>
+<![CDATA[		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_bool (xdrs, &objp->bstatus))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->returncode))
+				 return FALSE;
+
+		} else {
+		objp->bstatus = IXDR_GET_BOOL(buf);
+		objp->CurrentTypeSupported = IXDR_GET_U_LONG(buf);
+		objp->returncode = IXDR_GET_U_LONG(buf);
+		}
+		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_bool (xdrs, &objp->bstatus))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->returncode))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+		sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_GetSerialConsole (XDR *xdrs, GetSerialConsole *objp)
+{
+	register int32_t *buf;
+]]>
+            </text>
+        </set>
+        <set lineCount="36">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="149" endLineNumber="187"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="113" endLineNumber="151"/>
+            <text>
+<![CDATA[		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		 if (!xdr_opaque (xdrs, objp->vendorId, VENDOR_ID_LEN))
+			 return FALSE;
+		buf = XDR_INLINE (xdrs, 5 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->numericId))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->family))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->model))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->step))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->microcodeInfo))
+				 return FALSE;
+		} else {
+			objp->numericId = IXDR_GET_U_LONG(buf);
+			objp->family = IXDR_GET_U_LONG(buf);
+			objp->model = IXDR_GET_U_LONG(buf);
+			objp->step = IXDR_GET_U_LONG(buf);
+			objp->microcodeInfo = IXDR_GET_U_LONG(buf);
+		}
+	 return TRUE;
+	}
+
+	 if (!xdr_opaque (xdrs, objp->vendorId, VENDOR_ID_LEN))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->numericId))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->family))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->model))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->step))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->microcodeInfo))
+		 return FALSE;
+	return TRUE;
+]]>
+            </text>
+        </set>
+        <set lineCount="37">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="590" endLineNumber="628"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="680" endLineNumber="718"/>
+            <text>
+<![CDATA[	 if (!xdr_u_int (xdrs, &objp->id))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->modified, TIME_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->systemType, SYSTEM_TYPE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->manufacture, MANUFACTURE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->model, MODEL_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->serialNumber, SERIAL_NUM_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->power, HOST_BLADE_INFO_POWER_STATE_LEN))
+		 return FALSE;
+	 if (!xdr__bladeBios (xdrs, &objp->bios))
+		 return FALSE;
+	 if (!xdr_bool (xdrs, &objp->storageCapable))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->storageControllersCount))
+		 return FALSE;
+	 if (!xdr__bladeProcessors (xdrs, &objp->processors))
+		 return FALSE;
+	 if (!xdr__bladeMemory (xdrs, &objp->memory))
+		 return FALSE;
+	 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->enumStatus, HOST_ENUM_STATUS_LEN))
+		 return FALSE;
+	 if (!xdr__bladeBoot (xdrs, &objp->boot))
+		 return FALSE;
+	 if (!xdr__bladeAction (xdrs, &objp->actions))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_BladeInfo (XDR *xdrs, BladeInfo *objp)
+]]>
+            </text>
+        </set>
+        <set lineCount="37">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/BoardCtrl/source/boardctrl.c" startLineNumber="476" endLineNumber="529"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/apps/ModuleRPCManager/source/Restful_ModuleHnd.c" startLineNumber="5073" endLineNumber="5126"/>
+            <text>
+<![CDATA[char * tz_to_tzfile(int tz)
+{
+    int     index  = 0;
+    int     absidx = 0;
+    char ** pArray = NULL;
+    static char *  tzfile_east[15] = {
+        "GMT+0", "GMT-1", "GMT-2", "GMT-3", "GMT-4", "GMT-5", "GMT-6", "GMT-7", 
+        "GMT-8", "GMT-9", "GMT-10", "GMT-11", "GMT-12", "GMT-13", "GMT-14"
+    };
+    static char *  tzfile_west[13] = {
+        "GMT-0", "GMT+1", "GMT+2", "GMT+3", "GMT+4", "GMT+5", "GMT+6", "GMT+7", 
+        "GMT+8", "GMT+9", "GMT+10", "GMT+11", "GMT+12"
+    };
+
+    index = tz;
+    absidx = abs(index);
+    if (index > 0 && absidx < 15)
+        pArray = tzfile_east;
+    else if (index <= 0 && absidx < 13)
+        pArray = tzfile_west;
+    else
+        return NULL;
+
+    return pArray[absidx];
+}
+
+WORD32 SetTmcTimeZone(int tz)
+{
+    char   *tzfile = NULL;
+    char   *lnpath = NULL;
+    char    localtime_file[128] = "/etc/localtime";
+    char    zoneinfo_file[128]  = {0};
+
+    tzfile = tz_to_tzfile(tz);
+    if(tzfile == NULL)
+    {
+        return BSP_ERROR;
+    }
+
+    strcpy(zoneinfo_file, "/usr/share/zoneinfo/Etc/");
+    strcat(zoneinfo_file, tzfile);
+
+    lnpath = getenv("TZDIR");
+    if (lnpath != NULL)
+    {
+        strcpy(localtime_file, lnpath);
+        strcat(localtime_file, "/localtime");
+    }
+
+    unlink(localtime_file);
+    symlink(zoneinfo_file, localtime_file);
+    tzset();
+
+    return BSP_OK;
+]]>
+            </text>
+        </set>
+        <set lineCount="40">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="350" endLineNumber="390"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="299" endLineNumber="339"/>
+            <text>
+<![CDATA[	if (xdrs->x_op == XDR_ENCODE) {
+		 if (!xdr_u_int (xdrs, &objp->id))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->manufacture, MANUFACTURE_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->socket, SOCKET_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->bank, HOST_MEMORY_INFO_BANK_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->type, TYPE_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->serialNumber, SERIAL_NUM_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->assetTag, HOST_MEMORY_INFO_ASSET_TAG_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->partNumber, HOST_MEMORY_INFO_PART_NUM_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->rank, HOST_MEMORY_INFO_RANK_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->formFactor, HOST_MEMORY_INFO_FORM_FACTOR_LEN))
+			 return FALSE;
+		buf = XDR_INLINE (xdrs, 7 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->sizeGB))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->speedMHz))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->dataWidthBits))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->totalWidthBits))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->configuredSpeedMHz))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->minimumVoltageVolt))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->maximumVoltageVolt))
+				 return FALSE;
+
+		} else {
+]]>
+            </text>
+        </set>
+        <set lineCount="42">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="789" endLineNumber="840"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="692" endLineNumber="743"/>
+            <text>
+<![CDATA[		 if (!xdr_vector (xdrs, (char *)objp->name, NAME_LEN,
+			sizeof (char), (xdrproc_t) xdr_char))
+			 return FALSE;
+		 if (!xdr_vector (xdrs, (char *)objp->modified, TIME_LEN,
+			sizeof (char), (xdrproc_t) xdr_char))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		buf = XDR_INLINE (xdrs, (1 + ( COLLECTION_ITEM_MAX_COUNT )) * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->current_ids_count))
+				 return FALSE;
+			 if (!xdr_vector (xdrs, (char *)objp->ids, COLLECTION_ITEM_MAX_COUNT,
+				sizeof (u_int), (xdrproc_t) xdr_u_int))
+				 return FALSE;
+
+		} else {
+		objp->current_ids_count = IXDR_GET_U_LONG(buf);
+		{
+			register u_int *genp;
+
+			for (i = 0, genp = objp->ids;
+				i < COLLECTION_ITEM_MAX_COUNT; ++i) {
+				*genp++ = IXDR_GET_U_LONG(buf);
+			}
+		}
+		}
+		 if (!xdr_vector (xdrs, (char *)objp->name, NAME_LEN,
+			sizeof (char), (xdrproc_t) xdr_char))
+			 return FALSE;
+		 if (!xdr_vector (xdrs, (char *)objp->modified, TIME_LEN,
+			sizeof (char), (xdrproc_t) xdr_char))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_u_int (xdrs, &objp->current_ids_count))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->ids, COLLECTION_ITEM_MAX_COUNT,
+		sizeof (u_int), (xdrproc_t) xdr_u_int))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->name, NAME_LEN,
+		sizeof (char), (xdrproc_t) xdr_char))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->modified, TIME_LEN,
+		sizeof (char), (xdrproc_t) xdr_char))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_CollectionInfo (XDR *xdrs, CollectionInfo *objp)
+]]>
+            </text>
+        </set>
+        <set lineCount="44">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_clnt.c" startLineNumber="8" endLineNumber="51"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_server.c" startLineNumber="8" endLineNumber="51"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_svc.c" startLineNumber="18" endLineNumber="61"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_client.c" startLineNumber="8" endLineNumber="51"/>
+            <text>
+<![CDATA[#define RPC_SERVER_ERROR_BASE (0)
+#define RPC_SERVER_SUCCESS (RPC_SERVER_ERROR_BASE - 0)
+#define RPC_SERVER_FAILED (RPC_SERVER_ERROR_BASE - 1)
+#define RPC_SERVER_NOTREADY (RPC_SERVER_ERROR_BASE - 2)
+#define RPC_CLIENT_TYPE_INVALID (RPC_SERVER_ERROR_BASE - 3)
+#define RPC_POWER_TYPE_UNAVALIABLE (RPC_SERVER_ERROR_BASE - 4)
+#define COLLECTION_ITEM_MAX_COUNT 128 /* ..... ....... */
+#define GENERAL_STR_LEN 32 /* .. ..... */
+#define NAME_LEN 32 /* .. ....... */
+#define TIME_LEN 32 /* .. ....... */
+#define STATE_LEN 64 /* .. ....... */
+#define HEALTH_LEN 32 /* .. ....... */
+#define HEALTH_ROLLUP_LEN 32 /* .... ....... */
+#define MANUFACTURE_LEN 64 /* .... ....... */
+#define MODEL_LEN 64 /* .. ....... */
+#define RPM_LEN 16 /* ..(../..) ....... */
+#define SYSTEM_TYPE_LEN 16 /* ....(../..) ....... */
+#define INTERFACE_LEN 16 /* ..(.............) ....... */
+#define TYPE_LEN 32 /* .. ....... */
+#define SERIAL_NUM_LEN 32 /* ... ....... */
+#define VENDOR_ID_LEN 16 /* ... ....... */
+#define SOCKET_LEN 16 /* .... ....... */
+#define MAX_LENGTH_SUPPORTED 16
+#define MAX_TYPE_SUPPORTED 16
+#define MAX_INPUT_LEN 24
+#define MAX_OUTPUT_LEN 3000
+#define HOST_CPU_INFO_PROCESSOR_TYPE_LEN 24
+#define HOST_CPU_INFO_ARCH_LEN 4
+#define HOST_CPU_INFO_INSTUCT_SET_LEN 8
+#define HOST_CPU_INFO_INSTUCT_SET_EXT_LEN 8
+#define HOST_MEMORY_INFO_BANK_LEN 8
+#define HOST_MEMORY_INFO_ASSET_TAG_LEN 12
+#define HOST_MEMORY_INFO_PART_NUM_LEN 12
+#define HOST_MEMORY_INFO_RANK_LEN 12
+#define HOST_MEMORY_INFO_FORM_FACTOR_LEN 8
+#define HOST_HDD_INFO_BOOTABLE_LEN 8
+#define HOST_PROCESSOR_FAMILY_LEN 40
+#define HOST_BOOT_SOURCE_OVERRIDE 32
+#define HOST_BOOT_OVERRIDE_TARGET 32
+#define HOST_BOOT_OVERRIDE_SUPPORT 32
+#define HOST_RESET_TYPE_LENGTH 24
+#define HOST_RESET_TYPE_COUNT 16
+#define HOST_BLADE_INFO_POWER_STATE_LEN 16
+#define HOST_ENUM_STATUS_LEN 16
+]]>
+            </text>
+        </set>
+        <set lineCount="45">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_client.c" startLineNumber="8" endLineNumber="54"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_svc.c" startLineNumber="18" endLineNumber="63"/>
+            <text>
+<![CDATA[#define RPC_SERVER_ERROR_BASE (0)
+#define RPC_SERVER_SUCCESS (RPC_SERVER_ERROR_BASE - 0)
+#define RPC_SERVER_FAILED (RPC_SERVER_ERROR_BASE - 1)
+#define RPC_SERVER_NOTREADY (RPC_SERVER_ERROR_BASE - 2)
+#define RPC_CLIENT_TYPE_INVALID (RPC_SERVER_ERROR_BASE - 3)
+#define RPC_POWER_TYPE_UNAVALIABLE (RPC_SERVER_ERROR_BASE - 4)
+#define COLLECTION_ITEM_MAX_COUNT 128 /* ..... ....... */
+#define GENERAL_STR_LEN 32 /* .. ..... */
+#define NAME_LEN 32 /* .. ....... */
+#define TIME_LEN 32 /* .. ....... */
+#define STATE_LEN 64 /* .. ....... */
+#define HEALTH_LEN 32 /* .. ....... */
+#define HEALTH_ROLLUP_LEN 32 /* .... ....... */
+#define MANUFACTURE_LEN 64 /* .... ....... */
+#define MODEL_LEN 64 /* .. ....... */
+#define RPM_LEN 16 /* ..(../..) ....... */
+#define SYSTEM_TYPE_LEN 16 /* ....(../..) ....... */
+#define INTERFACE_LEN 16 /* ..(.............) ....... */
+#define TYPE_LEN 32 /* .. ....... */
+#define SERIAL_NUM_LEN 32 /* ... ....... */
+#define VENDOR_ID_LEN 16 /* ... ....... */
+#define SOCKET_LEN 16 /* .... ....... */
+#define MAX_LENGTH_SUPPORTED 16
+#define MAX_TYPE_SUPPORTED 16
+#define MAX_INPUT_LEN 24
+#define MAX_OUTPUT_LEN 3000
+#define HOST_CPU_INFO_PROCESSOR_TYPE_LEN 24
+#define HOST_CPU_INFO_ARCH_LEN 4
+#define HOST_CPU_INFO_INSTUCT_SET_LEN 8
+#define HOST_CPU_INFO_INSTUCT_SET_EXT_LEN 8
+#define HOST_MEMORY_INFO_BANK_LEN 8
+#define HOST_MEMORY_INFO_ASSET_TAG_LEN 12
+#define HOST_MEMORY_INFO_PART_NUM_LEN 12
+#define HOST_MEMORY_INFO_RANK_LEN 12
+#define HOST_MEMORY_INFO_FORM_FACTOR_LEN 8
+#define HOST_HDD_INFO_BOOTABLE_LEN 8
+#define HOST_PROCESSOR_FAMILY_LEN 40
+#define HOST_BOOT_SOURCE_OVERRIDE 32
+#define HOST_BOOT_OVERRIDE_TARGET 32
+#define HOST_BOOT_OVERRIDE_SUPPORT 32
+#define HOST_RESET_TYPE_LENGTH 24
+#define HOST_RESET_TYPE_COUNT 16
+#define HOST_BLADE_INFO_POWER_STATE_LEN 16
+#define HOST_ENUM_STATUS_LEN 16
+
+static void
+]]>
+            </text>
+        </set>
+        <set lineCount="46">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="920" endLineNumber="974"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="863" endLineNumber="917"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="806" endLineNumber="860"/>
+            <text>
+<![CDATA[	register int32_t *buf;
+
+	if (xdrs->x_op == XDR_ENCODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_bool (xdrs, &objp->bstatus))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->returncode))
+				 return FALSE;
+
+		} else {
+		IXDR_PUT_U_INT32(buf, objp->bstatus);
+		IXDR_PUT_U_INT32(buf, objp->CurrentTypeSupported);
+		IXDR_PUT_U_INT32(buf, objp->returncode);
+		}
+		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_bool (xdrs, &objp->bstatus))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->returncode))
+				 return FALSE;
+
+		} else {
+		objp->bstatus = IXDR_GET_BOOL(buf);
+		objp->CurrentTypeSupported = IXDR_GET_U_LONG(buf);
+		objp->returncode = IXDR_GET_U_LONG(buf);
+		}
+		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_bool (xdrs, &objp->bstatus))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->returncode))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+		sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+]]>
+            </text>
+        </set>
+        <set lineCount="47">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="919" endLineNumber="975"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="978" endLineNumber="1034"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="1037" endLineNumber="1093"/>
+            <text>
+<![CDATA[	register int32_t *buf;
+
+	int i;
+
+	if (xdrs->x_op == XDR_ENCODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_bool (xdrs, &objp->bstatus))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->returncode))
+				 return FALSE;
+
+		} else {
+		IXDR_PUT_BOOL(buf, objp->bstatus);
+		IXDR_PUT_U_LONG(buf, objp->CurrentTypeSupported);
+		IXDR_PUT_U_LONG(buf, objp->returncode);
+		}
+		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		buf = XDR_INLINE (xdrs, 3 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_bool (xdrs, &objp->bstatus))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->returncode))
+				 return FALSE;
+
+		} else {
+		objp->bstatus = IXDR_GET_BOOL(buf);
+		objp->CurrentTypeSupported = IXDR_GET_U_LONG(buf);
+		objp->returncode = IXDR_GET_U_LONG(buf);
+		}
+		 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+			sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_bool (xdrs, &objp->bstatus))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->CurrentTypeSupported))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->returncode))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->atTypeSupport, MAX_TYPE_SUPPORTED,
+		sizeof (typeSupported), (xdrproc_t) xdr_typeSupported))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+]]>
+            </text>
+        </set>
+        <set lineCount="82">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="240" endLineNumber="327"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="198" endLineNumber="285"/>
+            <text>
+<![CDATA[		 if (!xdr__CpuProcessorIdInfo (xdrs, &objp->processorId))
+			 return FALSE;
+		 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		 if (!xdr_u_int (xdrs, &objp->id))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->socket, SOCKET_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->manufacture, MANUFACTURE_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->model, MODEL_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->processorType, HOST_CPU_INFO_PROCESSOR_TYPE_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->processorArchitecture, HOST_CPU_INFO_ARCH_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->instructionSet, HOST_CPU_INFO_INSTUCT_SET_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->instructionSetExtensions, HOST_CPU_INFO_INSTUCT_SET_EXT_LEN))
+			 return FALSE;
+		buf = XDR_INLINE (xdrs, 5 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->maxSpeedMHz))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->totalCores))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->enabledCores))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->totalThreads))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->enabledThreads))
+				 return FALSE;
+
+		} else {
+		objp->maxSpeedMHz = IXDR_GET_U_LONG(buf);
+		objp->totalCores = IXDR_GET_U_LONG(buf);
+		objp->enabledCores = IXDR_GET_U_LONG(buf);
+		objp->totalThreads = IXDR_GET_U_LONG(buf);
+		objp->enabledThreads = IXDR_GET_U_LONG(buf);
+		}
+		 if (!xdr__CpuProcessorIdInfo (xdrs, &objp->processorId))
+			 return FALSE;
+		 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_u_int (xdrs, &objp->id))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->socket, SOCKET_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->manufacture, MANUFACTURE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->model, MODEL_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->processorType, HOST_CPU_INFO_PROCESSOR_TYPE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->processorArchitecture, HOST_CPU_INFO_ARCH_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->instructionSet, HOST_CPU_INFO_INSTUCT_SET_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->instructionSetExtensions, HOST_CPU_INFO_INSTUCT_SET_EXT_LEN))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->maxSpeedMHz))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->totalCores))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->enabledCores))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->totalThreads))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->enabledThreads))
+		 return FALSE;
+	 if (!xdr__CpuProcessorIdInfo (xdrs, &objp->processorId))
+		 return FALSE;
+	 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_ProcessorInfo (XDR *xdrs, ProcessorInfo *objp)
+]]>
+            </text>
+        </set>
+        <set lineCount="100">
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/tools/MockBMCRestfulIf/host_info_rpc_xdr.c" startLineNumber="399" endLineNumber="504"/>
+            <block sourceFile="/home/jgq/ZXOCSA/tmc/code/libs/BMCRpc/source/host_info_rpc_xdr.c" startLineNumber="348" endLineNumber="453"/>
+            <text>
+<![CDATA[		 if (!xdr_double (xdrs, &objp->voltageVolt))
+			 return FALSE;
+		 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+			 return FALSE;
+		return TRUE;
+	} else if (xdrs->x_op == XDR_DECODE) {
+		 if (!xdr_u_int (xdrs, &objp->id))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->manufacture, MANUFACTURE_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->socket, SOCKET_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->bank, HOST_MEMORY_INFO_BANK_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->type, TYPE_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->serialNumber, SERIAL_NUM_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->assetTag, HOST_MEMORY_INFO_ASSET_TAG_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->partNumber, HOST_MEMORY_INFO_PART_NUM_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->rank, HOST_MEMORY_INFO_RANK_LEN))
+			 return FALSE;
+		 if (!xdr_opaque (xdrs, objp->formFactor, HOST_MEMORY_INFO_FORM_FACTOR_LEN))
+			 return FALSE;
+		buf = XDR_INLINE (xdrs, 7 * BYTES_PER_XDR_UNIT);
+		if (buf == NULL) {
+			 if (!xdr_u_int (xdrs, &objp->sizeGB))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->speedMHz))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->dataWidthBits))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->totalWidthBits))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->configuredSpeedMHz))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->minimumVoltageVolt))
+				 return FALSE;
+			 if (!xdr_u_int (xdrs, &objp->maximumVoltageVolt))
+				 return FALSE;
+
+		} else {
+		objp->sizeGB = IXDR_GET_U_LONG(buf);
+		objp->speedMHz = IXDR_GET_U_LONG(buf);
+		objp->dataWidthBits = IXDR_GET_U_LONG(buf);
+		objp->totalWidthBits = IXDR_GET_U_LONG(buf);
+		objp->configuredSpeedMHz = IXDR_GET_U_LONG(buf);
+		objp->minimumVoltageVolt = IXDR_GET_U_LONG(buf);
+		objp->maximumVoltageVolt = IXDR_GET_U_LONG(buf);
+		}
+		 if (!xdr_double (xdrs, &objp->voltageVolt))
+			 return FALSE;
+		 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+			 return FALSE;
+	 return TRUE;
+	}
+
+	 if (!xdr_u_int (xdrs, &objp->id))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->name, NAME_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->manufacture, MANUFACTURE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->socket, SOCKET_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->bank, HOST_MEMORY_INFO_BANK_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->type, TYPE_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->serialNumber, SERIAL_NUM_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->assetTag, HOST_MEMORY_INFO_ASSET_TAG_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->partNumber, HOST_MEMORY_INFO_PART_NUM_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->rank, HOST_MEMORY_INFO_RANK_LEN))
+		 return FALSE;
+	 if (!xdr_opaque (xdrs, objp->formFactor, HOST_MEMORY_INFO_FORM_FACTOR_LEN))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->sizeGB))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->speedMHz))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->dataWidthBits))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->totalWidthBits))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->configuredSpeedMHz))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->minimumVoltageVolt))
+		 return FALSE;
+	 if (!xdr_u_int (xdrs, &objp->maximumVoltageVolt))
+		 return FALSE;
+	 if (!xdr_double (xdrs, &objp->voltageVolt))
+		 return FALSE;
+	 if (!xdr__PublicInfoStatusInfo (xdrs, &objp->status))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_MemoryInfo (XDR *xdrs, MemoryInfo *objp)
+]]>
+            </text>
+        </set>
+        <summary duplicateFileCount="31" duplicateLineCount="3438" duplicateBlockCount="166" totalFileCount="64" totalRawLineCount="57804" totalSignificantLineCount="33700" processingTime="301"/>
+    </check>
+</simian>

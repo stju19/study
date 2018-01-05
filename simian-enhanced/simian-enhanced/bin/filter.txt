@@ -1,0 +1,4 @@
+/home/jgq/ZXOCSA/tmc/code/apps/BoardCtrl/source/jgq.c
+/home/jgq/ZXOCSA/tmc/code/apps/BoardCtrl/source/abc.c
+
+/home/jgq/ZXOCSA/tmc/code/apps/BoardCtrl/source/def.c
